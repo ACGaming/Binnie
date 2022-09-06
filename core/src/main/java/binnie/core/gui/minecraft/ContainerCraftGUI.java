@@ -243,28 +243,30 @@ public class ContainerCraftGUI extends Container {
 
 	@Override
 	public void detectAndSendChanges() {
-		super.detectAndSendChanges();
-		if (crafters.size() <= 0) {
-			return;
-		}
-		sendTankChanges();
-		final IPoweredMachine powered = Machine.getInterface(IPoweredMachine.class, this.window.getInventory());
-		final IErrorStateSource error = Machine.getInterface(IErrorStateSource.class, this.window.getInventory());
-		final IProcess process = Machine.getInterface(IProcess.class, this.window.getInventory());
-		if (powered != null && this.window.isServer()) {
-			this.syncedNBT.put("power-update", this.createPowerNBT(powered.getPowerInfo()));
-		}
-		if (process != null && this.window.isServer()) {
-			this.syncedNBT.put("process-update", this.createProcessNBT(process.getInfo()));
-		}
-		if (error != null && this.window.isServer()) {
-			this.syncedNBT.put("error-update", this.createErrorNBT(error));
-		}
-		final INetwork.SendGuiNBT machineSync = Machine.getInterface(INetwork.SendGuiNBT.class, this.window.getInventory());
-		if (machineSync != null) {
-			machineSync.sendGuiNBTToClient(this.syncedNBT);
-		}
-		sendChangesToPlayers();
+		try {
+			super.detectAndSendChanges();
+			if (crafters.size() == 0) {
+				return;
+			}
+			sendTankChanges();
+			final IPoweredMachine powered = Machine.getInterface(IPoweredMachine.class, this.window.getInventory());
+			final IErrorStateSource error = Machine.getInterface(IErrorStateSource.class, this.window.getInventory());
+			final IProcess process = Machine.getInterface(IProcess.class, this.window.getInventory());
+			if (powered != null && this.window.isServer()) {
+				this.syncedNBT.put("power-update", this.createPowerNBT(powered.getPowerInfo()));
+			}
+			if (process != null && this.window.isServer()) {
+				this.syncedNBT.put("process-update", this.createProcessNBT(process.getInfo()));
+			}
+			if (error != null && this.window.isServer()) {
+				this.syncedNBT.put("error-update", this.createErrorNBT(error));
+			}
+			final INetwork.SendGuiNBT machineSync = Machine.getInterface(INetwork.SendGuiNBT.class, this.window.getInventory());
+			if (machineSync != null) {
+				machineSync.sendGuiNBTToClient(this.syncedNBT);
+			}
+			sendChangesToPlayers();
+		} catch (Exception ignored) {}
 	}
 
 	private void sendTankChanges() {
@@ -488,7 +490,7 @@ public class ContainerCraftGUI extends Container {
 	}
 
 	/**
-	 * Creates a slot on the client side an sends the position and the index to the server. {@link #createServerSlot(InventoryType, int, int)}
+	 * Creates a slot on the client side and sends the position and the index to the server. {@link #createServerSlot(InventoryType, int, int)}
 	 */
 	public Slot createClientSlot(final InventoryType type, final int index) {
 		final IInventory inventory = this.getInventory(type);
