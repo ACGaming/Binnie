@@ -58,7 +58,7 @@ public class WorldGenHiveMarble implements IHiveGen {
 				otherFace++;
 			}
 		}
-		return otherFace == 1;
+		return otherFace >= 1;
 	}
 
 	@Override
