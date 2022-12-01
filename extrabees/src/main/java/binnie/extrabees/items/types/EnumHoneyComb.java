@@ -10,6 +10,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
@@ -169,7 +171,13 @@ public enum EnumHoneyComb implements IEBEnumItem {
 		@Override
 		protected void addSubtypes(ItemStack beeswax, ItemStack honeyDrop) {
 			copyProducts(EnumHoneyComb.STONE);
-			tryAddProduct("crushedUranium", 0.50f);
+			ModContainer modContainer = Loader.instance().getIndexedModList().get("ic2");
+			if (modContainer.getName().equals("Industrial Craft Classic")) {
+				tryAddProduct("dropUranium", 0.50f);
+			}
+			else if (modContainer.getName().equals("IndustrialCraft 2")) {
+				tryAddProduct("crushedUranium", 0.50f);
+			}
 		}
 	},
 	CLAY(7034426, 11583702) {
