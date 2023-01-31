@@ -1770,8 +1770,7 @@ public enum ExtraBeeDefinition implements IBeeDefinition {
 
 		@Override
 		protected void registerMutations() {
-			registerMutation(BeeDefinition.ENDED, RELIC, 2)
-				.addMutationCondition(new ConditionPerson("jadedcat"));
+			registerMutation(BeeDefinition.ENDED, RELIC, 2);
 		}
 	},
 
