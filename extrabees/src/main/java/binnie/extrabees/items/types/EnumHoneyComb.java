@@ -171,11 +171,10 @@ public enum EnumHoneyComb implements IEBEnumItem {
 		@Override
 		protected void addSubtypes(ItemStack beeswax, ItemStack honeyDrop) {
 			copyProducts(EnumHoneyComb.STONE);
-			ModContainer modContainer = Loader.instance().getIndexedModList().get("ic2");
-			if (modContainer.getName().equals("Industrial Craft Classic")) {
+			if (Loader.isModLoaded("ic2-classic-spmod")) {
 				tryAddProduct("dropUranium", 0.50f);
 			}
-			else if (modContainer.getName().equals("IndustrialCraft 2")) {
+			else if (Loader.isModLoaded("ic2")) {
 				tryAddProduct("crushedUranium", 0.50f);
 			}
 		}
