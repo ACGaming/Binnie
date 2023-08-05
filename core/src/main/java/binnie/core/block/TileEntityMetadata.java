@@ -24,11 +24,14 @@ public class TileEntityMetadata extends TileEntity {
 
 	@Nullable
 	public static TileEntityMetadata getTile(final IBlockAccess world, final BlockPos pos) {
-		final TileEntity tile = world.getTileEntity(pos);
-		if (!(tile instanceof TileEntityMetadata)) {
-			return null;
+		final IBlockState blockState = world.getBlockState(pos);
+		if (blockState.getBlock().hasTileEntity(blockState)) {
+			final TileEntity tile = world.getTileEntity(pos);
+			if (tile instanceof TileEntityMetadata) {
+				return (TileEntityMetadata) tile;
+			}
 		}
-		return (TileEntityMetadata) tile;
+		return null;
 	}
 
 	public static ItemStack getItemStack(final Block block, final int damage) {
