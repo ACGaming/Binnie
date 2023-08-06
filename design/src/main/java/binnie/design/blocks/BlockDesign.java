@@ -222,9 +222,11 @@ public abstract class BlockDesign extends BlockMetadata implements IMultipassBlo
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Key getWorldKey(IBlockState state) {
+		if (!(state instanceof IExtendedBlockState)) return new Key(0, false);
 		IExtendedBlockState extendedState = (IExtendedBlockState) state;
 		IBlockAccess world = extendedState.getValue(UnlistedBlockAccess.BLOCKACCESS);
 		BlockPos pos = extendedState.getValue(UnlistedBlockPos.POS);
+		if (world == null || pos == null) return new Key(0, false);
 		return new Key(TileEntityMetadata.getTileMetadata(world, pos), false);
 	}
 
