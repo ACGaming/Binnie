@@ -57,6 +57,7 @@ public class TileEntityMetadata extends TileEntity {
 	}
 
 	public static int getTileMetadata(final IBlockAccess world, final BlockPos pos) {
+		if (world == null || pos == null) return 0;
 		final TileEntityMetadata tile = getTile(world, pos);
 		return (tile == null) ? 0 : tile.getTileMetadata();
 	}
