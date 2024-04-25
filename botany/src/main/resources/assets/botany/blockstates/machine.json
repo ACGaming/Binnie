@@ -13,6 +13,7 @@
     "machine_type": {
       "0": {
         "textures": {
+          "particle": "botany:blocks/tileworker",
           "texture": "botany:blocks/tileworker"
         }
       },

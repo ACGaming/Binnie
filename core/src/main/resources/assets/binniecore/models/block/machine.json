@@ -52,6 +52,9 @@
 			}
 		}
 	],
+	"textures": {
+		"particle": "#texture"
+	},
   "display": {
     "gui": {
       "rotation": [ 30, 45, 0 ],
