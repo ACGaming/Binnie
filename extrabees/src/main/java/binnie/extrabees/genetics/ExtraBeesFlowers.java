@@ -116,7 +116,7 @@ public enum ExtraBeesFlowers implements IFlowerProvider, IAlleleFlowers {
 				return Collections.singletonList(Blocks.DEADBUSH);
 			}
 			case FRUIT: {
-				return Collections.emptyList(); // TODO: what is this supposed to be? It was Items.APPLE before.
+				return ImmutableList.of(Blocks.MELON_BLOCK, Blocks.MELON_STEM);
 			}
 			case SAPLING: {
 				ArrayList<Block> saplingBlocks = new ArrayList<>();
