@@ -54,8 +54,6 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 	private List<IMutation> allMutations;
 	private final ListMultiMap<IAlleleSpecies, IMutation> resultantMutations;
 	private final ListMultiMap<IAlleleSpecies, IMutation> furtherMutations;
-	private final ListMultiMap<IAlleleSpecies, IMutation> allResultantMutations;
-	private final ListMultiMap<IAlleleSpecies, IMutation> allFurtherMutations;
 	private int totalSecretBranchCount;
 	private int discoveredSecretBranchCount;
 
@@ -66,8 +64,6 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 		this.allMutations = new ArrayList<>();
 		this.resultantMutations = new ListMultiMap<>();
 		this.furtherMutations = new ListMultiMap<>();
-		this.allResultantMutations = new ListMultiMap<>();
-		this.allFurtherMutations = new ListMultiMap<>();
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -134,8 +130,6 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 		this.allActiveSpecies = new ArrayList<>();
 		this.resultantMutations.clear();
 		this.furtherMutations.clear();
-		this.allResultantMutations.clear();
-		this.allFurtherMutations.clear();
 		Collection<IAllele> allAlleles = AlleleManager.alleleRegistry.getRegisteredAlleles().values();
 		for (IAllele allele : allAlleles) {
 			String uid = allele.getUID();
@@ -189,14 +183,12 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 				participatingSpecies.add(mutation.getAllele0());
 				participatingSpecies.add(mutation.getAllele1());
 				for (final IAlleleSpecies species : participatingSpecies) {
-					this.allFurtherMutations.put(species, mutation);
 					if (this.allActiveSpecies.contains(species)) {
 						this.furtherMutations.put(species, mutation);
 					}
 				}
 				IAllele[] template = mutation.getTemplate();
 				IAlleleSpecies speciesAllele = (IAlleleSpecies) template[0];
-				this.allResultantMutations.put(speciesAllele, mutation);
 				this.resultantMutations.put(speciesAllele, mutation);
 			}
 		}

@@ -23,7 +23,7 @@ allprojects {
     if (System.getenv("BUILD_NUMBER") != null) {
         version = version + "." + System.getenv("BUILD_NUMBER")
     } else {
-        version = version + ".212"
+        version = version + ".213"
     }
 
     minecraft {
