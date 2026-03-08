@@ -20,8 +20,6 @@ import forestry.api.genetics.ISpeciesRoot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.minecraftforge.event.world.WorldEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -158,11 +156,6 @@ public class ManagerGenetics extends ManagerBase {
 	public IIndividual getConversion(final ItemStack stack) {
 		final IBreedingSystem system = this.getConversionSystem(stack);
 		return (system == null) ? null : system.getConversion(stack);
-	}
-
-	@SubscribeEvent
-	public void onWorldLoad(final WorldEvent.Load event) {
-		this.refreshData();
 	}
 
 	private void refreshData() {
