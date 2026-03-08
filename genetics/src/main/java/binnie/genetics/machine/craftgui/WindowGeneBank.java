@@ -124,7 +124,7 @@ public class WindowGeneBank extends WindowMachine {
 			}
 		}
 		new ControlText(panelProject, new Point(4, 4), "§nFull Genome Project");
-		new ControlText(panelProject, new Point(4, 18), "§oSequenced §r" + seqGenes + '/' + totalGenes + " §oGenes");
+		new ControlText(panelProject, new Point(4, 18), "§oSequenced §r" + seqGenes + "/" + totalGenes + " §oGenes");
 	}
 
 	@Override
@@ -192,7 +192,7 @@ public class WindowGeneBank extends WindowMachine {
 						}
 					}
 				}
-				tooltip.add(seqGenes + '/' + totalGenes + " Genes");
+				tooltip.add(seqGenes + "/" + totalGenes + " Genes");
 			}
 		}
 	}
