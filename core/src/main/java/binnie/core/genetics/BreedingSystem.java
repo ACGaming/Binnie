@@ -388,8 +388,8 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 				++this.discoveredSecretBranchCount;
 			}
 		}
-		this.discoveredSpeciesPercentage = this.discoveredSpeciesCount / this.totalSpeciesCount;
-		this.discoveredBranchPercentage = this.discoveredBranchCount / this.totalBranchCount;
+		this.discoveredSpeciesPercentage = (float) this.discoveredSpeciesCount / (float) this.totalSpeciesCount;
+		this.discoveredBranchPercentage = (float) this.discoveredBranchCount / (float) this.totalBranchCount;
 		final String epithet = this.getEpitome();
 		this.onSyncBreedingTracker(tracker);
 	}
