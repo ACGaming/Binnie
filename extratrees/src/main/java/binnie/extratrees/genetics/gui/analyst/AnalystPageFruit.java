@@ -10,6 +10,7 @@ import binnie.core.gui.controls.core.Control;
 import binnie.core.gui.geometry.Point;
 import binnie.core.gui.minecraft.control.ControlItemDisplay;
 import binnie.core.util.I18N;
+import binnie.core.util.Log;
 import binnie.core.util.UniqueItemStackSet;
 import binnie.genetics.api.analyst.AnalystConstants;
 import binnie.genetics.api.analyst.IAnalystManager;
@@ -26,6 +27,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
 import java.util.Collection;
@@ -34,6 +36,26 @@ import java.util.Map;
 
 @SideOnly(Side.CLIENT)
 public class AnalystPageFruit extends Control implements ITitledWidget {
+	private static final Unsafe UNSAFE;
+	private static final long DROPS_OFFSET;
+
+	// TODO: Mixin accessor?
+	static {
+		try {
+			Field unsafeField = Unsafe.class.getDeclaredField("theUnsafe");
+			unsafeField.setAccessible(true);
+			UNSAFE = (Unsafe) unsafeField.get(null);
+			DROPS_OFFSET = UNSAFE.objectFieldOffset(FruitProviderPod.class.getDeclaredField("drops"));
+			Log.info("Got drops map from Forestry's FruitProviderPod");
+		} catch (NoSuchFieldException | IllegalAccessException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+	}
+
+	private static Map<ItemStack, Float> getDrops(FruitProviderPod pod) {
+		return (Map<ItemStack, Float>) UNSAFE.getObject(pod, DROPS_OFFSET);
+	}
+
 	public AnalystPageFruit(IWidget parent, IArea area, ITree ind, IAnalystManager analystManager) {
 		super(parent, area);
 		setColor(13382400);
@@ -50,15 +72,9 @@ public class AnalystPageFruit extends Control implements ITitledWidget {
 		Collection<ItemStack> wiid = new UniqueItemStackSet();
 		products.addAll(ind.getProducts().keySet());
 		specialties.addAll(ind.getSpecialties().keySet());
-		try {
-			if (ind.getGenome().getFruitProvider() instanceof FruitProviderPod) {
-				FruitProviderPod pod = (FruitProviderPod) ind.getGenome().getFruitProvider();
-				Field f = FruitProviderPod.class.getDeclaredField("drops");
-				f.setAccessible(true);
-				Collections.addAll(products, ((Map<ItemStack, Float>) f.get(pod)).keySet().toArray(new ItemStack[0]));
-			}
-		} catch (IllegalAccessException | NoSuchFieldException e) {
-			throw new RuntimeException(e);
+		if (ind.getGenome().getFruitProvider() instanceof FruitProviderPod) {
+			FruitProviderPod pod = (FruitProviderPod) ind.getGenome().getFruitProvider();
+			Collections.addAll(products, getDrops(pod).keySet().toArray(new ItemStack[0]));
 		}
 		if (products.size() > 0) {
 			new ControlTextCentered(this, y, I18N.localise(AnalystConstants.FRUIT_KEY + ".natural")).setColor(getColor());
@@ -106,20 +122,11 @@ public class AnalystPageFruit extends Control implements ITitledWidget {
 				if (((IAlleleFruit) a).getProvider().getFamily() == fam) {
 					stacks.addAll(((IAlleleFruit) a).getProvider().getProducts().keySet());
 					stacks.addAll(((IAlleleFruit) a).getProvider().getSpecialty().keySet());
-					try {
-						if (a.getUID().contains("fruitCocoa")) {
-							stacks.add(new ItemStack(Items.DYE, 1, 3));
-						} else {
-							if (!(((IAlleleFruit) a).getProvider() instanceof FruitProviderPod)) {
-								continue;
-							}
-							FruitProviderPod pod2 = (FruitProviderPod) ((IAlleleFruit) a).getProvider();
-							Field field = FruitProviderPod.class.getDeclaredField("drops");
-							field.setAccessible(true);
-							Collections.addAll(stacks, ((Map<ItemStack, Float>) field.get(pod2)).keySet().toArray(new ItemStack[0]));
-						}
-					} catch (IllegalAccessException | NoSuchFieldException e) {
-						throw new RuntimeException(e);
+					if (a.getUID().contains("fruitCocoa")) {
+						stacks.add(new ItemStack(Items.DYE, 1, 3));
+					} else if (((IAlleleFruit) a).getProvider() instanceof FruitProviderPod) {
+						FruitProviderPod pod2 = (FruitProviderPod) ((IAlleleFruit) a).getProvider();
+						Collections.addAll(stacks, getDrops(pod2).keySet().toArray(new ItemStack[0]));
 					}
 				}
 			}

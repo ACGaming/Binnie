@@ -2,6 +2,7 @@ package binnie.extratrees.genetics;
 
 import binnie.core.Binnie;
 import binnie.core.api.genetics.IBreedingSystem;
+import binnie.core.util.Log;
 import binnie.extratrees.config.ConfigurationMain;
 import binnie.extratrees.genetics.fruits.ETFruitProviderNone;
 import binnie.extratrees.genetics.fruits.ETFruitProviderPod;
@@ -20,6 +21,7 @@ import forestry.arboriculture.FruitProviderNone;
 import forestry.arboriculture.genetics.alleles.AlleleTreeSpecies;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import sun.misc.Unsafe;
 
 import java.awt.Color;
 import java.lang.reflect.Field;
@@ -386,6 +388,22 @@ public enum AlleleETFruitDefinition {
 	//	, Papayimar("papayimar", FruitPod.PAPAYIMAR)
 	;
 
+	private static final Unsafe UNSAFE;
+	private static final long FAMILY_OFFSET;
+
+	// TODO: Mixin accessor?
+	static {
+		try {
+			Field unsafeField = Unsafe.class.getDeclaredField("theUnsafe");
+			unsafeField.setAccessible(true);
+			UNSAFE = (Unsafe) unsafeField.get(null);
+			FAMILY_OFFSET = UNSAFE.objectFieldOffset(FruitProviderNone.class.getDeclaredField("family"));
+			Log.info("Got fruit family from Forestry's FruitProviderNone");
+		} catch (NoSuchFieldException | IllegalAccessException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+	}
+
 	private final IAlleleFruit alleleFruit;
 	private final ETFruitProviderNone fruitProvider;
 
@@ -412,18 +430,9 @@ public enum AlleleETFruitDefinition {
 		AlleleManager.alleleRegistry.registerFruitFamily(CITRUS);
 
 		if (ConfigurationMain.alterLemon) {
-			try {
-				final IAlleleFruit lemon = (IAlleleFruit) AlleleManager.alleleRegistry.getAllele("forestry.fruitLemon");
-				final FruitProviderNone prov = (FruitProviderNone) lemon.getProvider();
-				final Field familyField = FruitProviderNone.class.getDeclaredField("family");
-				final Field modifiersField = Field.class.getDeclaredField("modifiers");
-				familyField.setAccessible(true);
-				modifiersField.setAccessible(true);
-				modifiersField.setInt(familyField, familyField.getModifiers() & 0xFFFFFFEF);
-				familyField.set(prov, CITRUS);
-			} catch (IllegalAccessException | NoSuchFieldException e) {
-				throw new RuntimeException(e);
-			}
+			final IAlleleFruit lemon = (IAlleleFruit) AlleleManager.alleleRegistry.getAllele("forestry.fruitLemon");
+			final FruitProviderNone prov = (FruitProviderNone) lemon.getProvider();
+			UNSAFE.putObject(prov, FAMILY_OFFSET, CITRUS);
 		}
 		IBreedingSystem treeSystem = Binnie.GENETICS.getSystem(TreeManager.treeRoot);
 		for (IAlleleSpecies tree : treeSystem.getAllSpecies()) {
