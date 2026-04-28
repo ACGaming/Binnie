@@ -78,7 +78,7 @@ public class WindowFieldKit extends Window {
 
 	@Override
 	protected String getBackgroundTextureName() {
-		return "Field Kit";
+		return I18N.localise("binniecore.gui.fieldkit.title");
 	}
 
 	private void setupValidators() {

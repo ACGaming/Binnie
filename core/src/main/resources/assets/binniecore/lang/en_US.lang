@@ -182,6 +182,7 @@ binniecore.gui.breedingmessage.species=Species Discovered
 binniecore.gui.breedingmessage.branch=Branch Discovered
 binniecore.gui.breedingmessage.epithet=Epithet Gained
 
+binniecore.item.container.empty=Empty
 binniecore.item.container.capsule=Capsule
 binniecore.item.container.refractory=Capsule
 binniecore.item.container.can=Can
@@ -361,6 +362,7 @@ binniecore.gui.tank.output=Output Tank
 binniecore.gui.tank.capacity=Capacity: %s mB
 binniecore.gui.tank.amount=%s mB
 binniecore.gui.tank.percent.full=%s full
+binniecore.gui.tank.empty=Empty
 
 binniecore.gui.side.insert=Insert Side: %s
 binniecore.gui.side.extract=Extract Side: %s

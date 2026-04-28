@@ -189,7 +189,7 @@ public class ControlLiquidTank extends Control implements ITooltip {
 			tooltip.add(I18N.localise(ModId.CORE, "gui.tank.amount", tankAmount));
 			return;
 		}
-		tooltip.add("Empty");
+		tooltip.add(I18N.localise("binniecore.gui.tank.empty"));
 	}
 
 	@Nullable

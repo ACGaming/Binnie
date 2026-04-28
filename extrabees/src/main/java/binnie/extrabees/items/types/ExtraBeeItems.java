@@ -1,5 +1,6 @@
 package binnie.extrabees.items.types;
 
+import binnie.core.util.I18N;
 import binnie.extrabees.modules.ModuleCore;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -12,126 +13,126 @@ import java.util.List;
 
 public enum ExtraBeeItems implements IEBItemMiscProvider {
 
-	SCENTED_GEAR("Scented Gear", "scented_gear"),
-	DIAMOND_SHARD("Diamond Fragment", "diamond_shard") {
+	SCENTED_GEAR("extrabees.item.misc.scented_gear", "scented_gear"),
+	DIAMOND_SHARD("extrabees.item.misc.diamond_shard", "diamond_shard") {
 		@Override
 		protected void init() {
 			setGem("Diamond");
 		}
 	},
-	EMERALD_SHARD("Emerald Fragment", "emerald_shard") {
+	EMERALD_SHARD("extrabees.item.misc.emerald_shard", "emerald_shard") {
 		@Override
 		protected void init() {
 			setGem("Emerald");
 		}
 	},
-	RUBY_SHARD("Ruby Fragment", "ruby_shard") {
+	RUBY_SHARD("extrabees.item.misc.ruby_shard", "ruby_shard") {
 		@Override
 		protected void init() {
 			setGem("Ruby");
 		}
 	},
-	SAPPHIRE_SHARD("Sapphire Fragment", "sapphire_shard") {
+	SAPPHIRE_SHARD("extrabees.item.misc.sapphire_shard", "sapphire_shard") {
 		@Override
 		protected void init() {
 			setGem("Sapphire");
 		}
 	},
-	LAPIS_SHARD("Lapis Fragment", "lapis_shard"),
-	IRON_DUST("Iron Grains", "iron_dust") {
+	LAPIS_SHARD("extrabees.item.misc.lapis_shard", "lapis_shard"),
+	IRON_DUST("extrabees.item.misc.iron_dust", "iron_dust") {
 		@Override
 		protected void init() {
 			setMetal("Iron");
 		}
 	},
-	GOLD_DUST("Gold Grains", "gold_dust") {
+	GOLD_DUST("extrabees.item.misc.gold_dust", "gold_dust") {
 		@Override
 		protected void init() {
 			setMetal("Gold");
 		}
 	},
-	SILVER_DUST("Silver Grains", "silver_dust") {
+	SILVER_DUST("extrabees.item.misc.silver_dust", "silver_dust") {
 		@Override
 		protected void init() {
 			setMetal("Silver");
 		}
 	},
-	PLATINUM_DUST("Platinum Grains", "platinum_dust") {
+	PLATINUM_DUST("extrabees.item.misc.platinum_dust", "platinum_dust") {
 		@Override
 		protected void init() {
 			setMetal("Platinum");
 		}
 	},
-	COPPER_DUST("Copper Grains", "copper_dust") {
+	COPPER_DUST("extrabees.item.misc.copper_dust", "copper_dust") {
 		@Override
 		protected void init() {
 			setMetal("Copper");
 		}
 	},
-	TIN_DUST("Tin Grains", "tin_dust") {
+	TIN_DUST("extrabees.item.misc.tin_dust", "tin_dust") {
 		@Override
 		protected void init() {
 			setMetal("Tin");
 		}
 	},
-	NICKEL_DUST("Nickel Grains", "nickel_dust") {
+	NICKEL_DUST("extrabees.item.misc.nickel_dust", "nickel_dust") {
 		@Override
 		protected void init() {
 			setMetal("Nickel");
 		}
 	},
-	LEAD_DUST("Lead Grains", "lead_dust") {
+	LEAD_DUST("extrabees.item.misc.lead_dust", "lead_dust") {
 		@Override
 		protected void init() {
 			setMetal("Lead");
 		}
 	},
-	ZINC_DUST("Zinc Grains", "zinc_dust") {
+	ZINC_DUST("extrabees.item.misc.zinc_dust", "zinc_dust") {
 		@Override
 		protected void init() {
 			setMetal("Zinc");
 		}
 	},
-	TITANIUM_DUST("Titanium Grains", "titanium_dust") {
+	TITANIUM_DUST("extrabees.item.misc.titanium_dust", "titanium_dust") {
 		@Override
 		protected void init() {
 			setMetal("Titanium");
 		}
 	},
-	TUNGSTEN_DUST("Tungsten Grains", "tungsten_dust") {
+	TUNGSTEN_DUST("extrabees.item.misc.tungsten_dust", "tungsten_dust") {
 		@Override
 		protected void init() {
 			setMetal("Tungsten");
 		}
 	},
-	URANIUM_DUST("Radioactive Fragments", "radioactive_dust"),
-	COAL_DUST("Coal Grains", "coal_dust") {
+	URANIUM_DUST("extrabees.item.misc.radioactive_dust", "radioactive_dust"),
+	COAL_DUST("extrabees.item.misc.coal_dust", "coal_dust") {
 		@Override
 		protected void init() {
 			setMetal("Coal");
 		}
 	},
-	RED_DYE("Red Dye", "dye_red"),
-	YELLOW_DYE("Yellow Dye", "dye_yellow"),
-	BLUE_DYE("Blue Dye", "dye_blue"),
-	GREEN_DYE("Green Dye", "dye_green"),
-	WHITE_DYE("White Dye", "dye_white"),
-	BLACK_DYE("Black Dye", "dye_black"),
-	BROWN_DYE("Brown Dye", "dye_brown"),
-	CLAY_DUST("Clay Dust", "clay_dust"),
-	YELLORIUM_DUST("Yellorium Grains", "yellorium_dust") {
+	RED_DYE("extrabees.item.misc.dye_red", "dye_red"),
+	YELLOW_DYE("extrabees.item.misc.dye_yellow", "dye_yellow"),
+	BLUE_DYE("extrabees.item.misc.dye_blue", "dye_blue"),
+	GREEN_DYE("extrabees.item.misc.dye_green", "dye_green"),
+	WHITE_DYE("extrabees.item.misc.dye_white", "dye_white"),
+	BLACK_DYE("extrabees.item.misc.dye_black", "dye_black"),
+	BROWN_DYE("extrabees.item.misc.dye_brown", "dye_brown"),
+	CLAY_DUST("extrabees.item.misc.clay_dust", "clay_dust"),
+	YELLORIUM_DUST("extrabees.item.misc.yellorium_dust", "yellorium_dust") {
 		@Override
 		protected void init() {
 			setMetal("Yellorium");
 		}
 	},
-	BLUTONIUM_DUST("Blutonium Grains", "blutonium_dust") {
+	BLUTONIUM_DUST("extrabees.item.misc.blutonium_dust", "blutonium_dust") {
 		@Override
 		protected void init() {
 			setMetal("Blutonium");
 		}
 	},
-	CYANITE_DUST("Cyanite Grains", "cyanite_dust") {
+	CYANITE_DUST("extrabees.item.misc.cyanite_dust", "cyanite_dust") {
 		@Override
 		protected void init() {
 			setMetal("Cyanite");
@@ -182,7 +183,7 @@ public enum ExtraBeeItems implements IEBItemMiscProvider {
 
 	@Override
 	public String getName(final ItemStack itemStack) {
-		return this.name;
+		return I18N.localise(name);
 	}
 
 	@Override

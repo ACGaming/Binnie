@@ -1,6 +1,7 @@
 package binnie.extrabees.items;
 
 import binnie.core.api.gui.IGuiItem;
+import binnie.core.util.I18N;
 import binnie.extrabees.ExtraBees;
 import binnie.extrabees.gui.ExtraBeesGUID;
 import forestry.api.core.IItemModelRegister;
@@ -40,7 +41,7 @@ public class ItemBeeDictionary extends Item implements IItemModelRegister, IGuiI
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 		if (stack.getItemDamage() > 0) {
-			tooltip.add("Flora-in-a-box");
+			tooltip.add(I18N.localise("extrabees.item.dictionary.tooltip"));
 		}
 	}
 
@@ -69,7 +70,7 @@ public class ItemBeeDictionary extends Item implements IItemModelRegister, IGuiI
 	@Override
 	@Nonnull
 	public String getItemStackDisplayName(@Nonnull ItemStack i) {
-		return (i.getItemDamage() == 0) ? "Apiarist Database" : "Master Apiarist Database";
+		return (i.getItemDamage() == 0) ? I18N.localise("extrabees.item.dictionary") : I18N.localise("extrabees.item.dictionary.master");
 	}
 
 	@Override

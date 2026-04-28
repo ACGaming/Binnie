@@ -1,6 +1,7 @@
 package binnie.genetics.item;
 
 import binnie.core.item.IItemMiscProvider;
+import binnie.core.util.I18N;
 import binnie.genetics.modules.ModuleCore;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,17 +11,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 public enum GeneticsItems implements IItemMiscProvider {
-	LaboratoryCasing("Reinforced Casing", "casing_iron"),
-	DNADye("DNA Dye", "dna_dye"),
-	FluorescentDye("Fluorescent Dye", "dye_fluor"),
-	Enzyme("Enzyme", "enzyme"),
-	GrowthMedium("Growth Medium", "growth_medium"),
-	EmptySequencer("Blank Sequence", "sequencer_empty"),
-	EMPTY_SERUM("Empty Serum Vial", "serum_empty"),
-	EMPTY_GENOME("Empty Serum Array", "genome_empty"),
-	IntegratedCircuit("Integrated Circuit Board", "integrated_circuit"),
-	IntegratedCPU("Integrated CPU", "integrated_cpu"),
-	IntegratedCasing("Integrated Casing", "casing_circuit");
+	LaboratoryCasing("genetics.item.misc.casing_iron", "casing_iron"),
+	DNADye("genetics.item.misc.dna_dye", "dna_dye"),
+	FluorescentDye("genetics.item.misc.dye_fluor", "dye_fluor"),
+	Enzyme("genetics.item.misc.enzyme", "enzyme"),
+	GrowthMedium("genetics.item.misc.growth_medium", "growth_medium"),
+	EmptySequencer("genetics.item.misc.sequencer_empty", "sequencer_empty"),
+	EMPTY_SERUM("genetics.item.misc.serum_empty", "serum_empty"),
+	EMPTY_GENOME("genetics.item.misc.genome_empty", "genome_empty"),
+	IntegratedCircuit("genetics.item.misc.integrated_circuit", "integrated_circuit"),
+	IntegratedCPU("genetics.item.misc.integrated_cpu", "integrated_cpu"),
+	IntegratedCasing("genetics.item.misc.casing_circuit", "casing_circuit");
 
 	private final String name;
 	private final String modelPath;
@@ -42,7 +43,7 @@ public enum GeneticsItems implements IItemMiscProvider {
 
 	@Override
 	public String getDisplayName(final ItemStack stack) {
-		return this.name;
+		return I18N.localise(name);
 	}
 
 	@Override

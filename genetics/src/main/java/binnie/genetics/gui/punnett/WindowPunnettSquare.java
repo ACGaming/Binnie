@@ -8,6 +8,7 @@ import binnie.core.gui.resource.stylesheet.StyleSheetManager;
 import binnie.core.resource.BinnieResource;
 import binnie.core.resource.IBinnieTexture;
 import binnie.core.resource.ResourceType;
+import binnie.core.util.I18N;
 import binnie.genetics.Genetics;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -32,13 +33,13 @@ public class WindowPunnettSquare extends Window {
 
 	@Override
 	public String getBackgroundTextureName() {
-		return "Punnett";
+		return I18N.localise("genetics.gui.punnett");
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void initialiseClient() {
-		setTitle("Punnett Square");
+		setTitle(I18N.localise("genetics.gui.punnettsquare"));
 		CraftGUI.RENDER.setStyleSheet(StyleSheetManager.getSheet(StyleSheetManager.PUNNETT_SHEET));
 	}
 

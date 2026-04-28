@@ -3,6 +3,7 @@ package binnie.core.item;
 import binnie.core.BinnieCore;
 import binnie.core.api.gui.IGuiItem;
 import binnie.core.gui.BinnieCoreGUI;
+import binnie.core.util.I18N;
 import forestry.api.core.Tabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -34,6 +35,6 @@ public class ItemGenesis extends ItemCore implements IGuiItem {
 
 	@Override
 	public String getItemStackDisplayName(final ItemStack i) {
-		return "Genesis";
+		return I18N.localise("binniecore.gui.genesis.title");
 	}
 }

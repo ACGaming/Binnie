@@ -3,6 +3,7 @@ package binnie.core.item;
 import binnie.core.BinnieCore;
 import binnie.core.Constants;
 import binnie.core.gui.BinnieCoreGUI;
+import binnie.core.util.I18N;
 import forestry.api.core.IModelManager;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -59,16 +60,16 @@ public class ItemFieldKit extends ItemCore {
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		final int i = stack.getMaxDamage() - stack.getItemDamage();
 		if (i == 0) {
-			tooltip.add("No paper");
+			tooltip.add(I18N.localise("binniecore.gui.fieldkit.paper.no"));
 		} else {
-			tooltip.add(i + " sheet" + ((i > 1) ? "s" : "") + " of paper");
+			tooltip.add(I18N.localise("binniecore.gui.fieldkit.paper") + ": " + i);
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 
 	@Override
 	public String getItemStackDisplayName(final ItemStack p_77653_1_) {
-		return "Field Kit";
+		return I18N.localise("binniecore.gui.fieldkit.title");
 	}
 
 	@SideOnly(Side.CLIENT)

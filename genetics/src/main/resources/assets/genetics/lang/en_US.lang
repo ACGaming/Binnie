@@ -146,7 +146,7 @@ genetics.gui.analyst.description.title=Description
 genetics.gui.analyst.description.discovered=Discovered by
 genetics.gui.analyst.description.complexity=Genetic Complexity
 
-//Flower
+#Flower
 genetics.gui.analyst.soil.title=Soil
 genetics.gui.analyst.soil.tolerance.moisture=Moisture Tolerance
 genetics.gui.analyst.soil.tolerance.ph=pH Tolerance
@@ -158,10 +158,10 @@ genetics.gui.analyst.appearance.primary=Primary Petal Colour
 genetics.gui.analyst.appearance.secondary=Secondary Petal Colour
 genetics.gui.analyst.appearance.stem=Stem Colour
 
-//Butterfly
+#Butterfly
 genetics.gui.analyst.specimen.title=Specimen
 
-//Bee
+#Bee
 genetics.gui.analyst.products.title=Produce
 genetics.gui.analyst.products.rate=Rate
 genetics.gui.analyst.products.natural=Natural Products
@@ -171,7 +171,7 @@ genetics.gui.analyst.products.centrifuges=Centrifuges to give
 genetics.gui.analyst.products.squeezes=Squeezes to give
 genetics.gui.analyst.products.every=Every
 
-//Tree
+#Tree
 genetics.gui.analyst.wood.title=Wood
 genetics.gui.analyst.wood.fireproof=Fireproof
 genetics.gui.analyst.wood.flammable=Flammable
@@ -208,6 +208,18 @@ genetics.item.gene.more.genes=more genes. Hold shift to display.
 
 genetics.item.database.name=Gene Database
 genetics.item.database.master.name=Master Gene Database
+
+genetics.item.misc.casing_iron=Reinforced Casing
+genetics.item.misc.dna_dye=DNA Dye
+genetics.item.misc.dye_fluor=Fluorescent Dye
+genetics.item.misc.enzyme=Enzyme
+genetics.item.misc.growth_medium=Growth Medium
+genetics.item.misc.sequencer_empty=Blank Sequence
+genetics.item.misc.serum_empty=Empty Serum Vial
+genetics.item.misc.genome_empty=Empty Serum Array
+genetics.item.misc.integrated_circuit=Integrated Circuit Board
+genetics.item.misc.integrated_cpu=Integrated CPU
+genetics.item.misc.casing_circuit=Integrated Casing
 
 genetics.item.sequence.corrupted.name=Corrupted Sequence
 genetics.item.sequence.name=DNA Sequence
@@ -356,11 +368,19 @@ genetics.gui.database.tab.branches.overview=Overview
 genetics.gui.database.tab.branches.species=Species
 genetics.gui.database.tab.breeder=Breeder
 
+genetics.gui.punnett=Punnett
+genetics.gui.punnettsquare=Punnett Square
+
 genetics.fluid.geneticliquid.growthmedium=Growth Medium
 genetics.fluid.geneticliquid.bacteria=Bacteria
 genetics.fluid.geneticliquid.bacteriapoly=Polymerising Bacteria
 genetics.fluid.geneticliquid.rawdna=Raw DNA
 genetics.fluid.geneticliquid.bacteriavector=Bacteria Vector
+tile.genetics.fluid.geneticliquid.growthmedium.name=Growth Medium
+tile.genetics.fluid.geneticliquid.bacteria.name=Bacteria
+tile.genetics.fluid.geneticliquid.bacteriapoly.name=Polymerising Bacteria
+tile.genetics.fluid.geneticliquid.rawdna.name=Raw DNA
+tile.genetics.fluid.geneticliquid.bacteriavector.name=Bacteria Vector
 
 genetics.config.acclimatiser.energy=Energy used per tick by the acclimatiser
 genetics.config.analyser.energy=Energy used per process by the analyzer

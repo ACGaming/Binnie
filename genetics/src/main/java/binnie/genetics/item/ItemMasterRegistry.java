@@ -3,6 +3,7 @@ package binnie.genetics.item;
 import binnie.core.Binnie;
 import binnie.core.api.gui.IGuiItem;
 import binnie.core.item.ItemCore;
+import binnie.core.util.I18N;
 import binnie.genetics.CreativeTabGenetics;
 import binnie.genetics.Genetics;
 import binnie.genetics.core.GeneticsGUI;
@@ -43,6 +44,6 @@ public class ItemMasterRegistry extends ItemCore implements IGuiItem {
 
 	@Override
 	public String getItemStackDisplayName(final ItemStack i) {
-		return "Master Registry";
+		return I18N.localise("genetics.gui.registry.master.title");
 	}
 }

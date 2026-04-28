@@ -1,6 +1,7 @@
 package binnie.core.liquid;
 
 import binnie.core.Binnie;
+import binnie.core.util.I18N;
 import forestry.api.core.IItemModelRegister;
 import forestry.api.core.IModelManager;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -49,9 +50,9 @@ public class ItemFluidContainer extends ItemFood implements IItemModelRegister {
 	public String getItemStackDisplayName(final ItemStack itemstack) {
 		FluidStack fluid = getContained(itemstack);
 		if (fluid == null) {
-			return "Empty " + container.getDisplayName();
+			return this.container.getDisplayName() + " (" + I18N.localise("binniecore.item.container.empty") + ")";
 		}
-		return fluid.getFluid().getLocalizedName(fluid) + ' ' + this.container.getDisplayName();
+		return this.container.getDisplayName() + " (" + fluid.getFluid().getLocalizedName(fluid) + ")";
 	}
 
 	@Override

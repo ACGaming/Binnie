@@ -61,7 +61,7 @@ public class WindowGenesis extends Window {
 
 	@Override
 	protected String getBackgroundTextureName() {
-		return "Genesis";
+		return I18N.localise("binniecore.gui.genesis.title");
 	}
 
 	@Override
