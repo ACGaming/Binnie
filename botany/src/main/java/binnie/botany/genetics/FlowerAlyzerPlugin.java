@@ -93,9 +93,8 @@ public class FlowerAlyzerPlugin implements IAlyzerPlugin {
 		ItemStack renderP = getIconStacks().get(flower.getGenome().getPrimary().getUID());
 		ItemStack renderS = getIconStacks().get(flower.getGenome().getSecondary().getUID());
 
-
-		gui.mc.fontRenderer.drawString("Active", guiLeft + 10 + COLUMN_1, guiTop + 10, 0xffffff);
-		gui.mc.fontRenderer.drawString("Inactive", guiLeft + 10 + COLUMN_2, guiTop + 10, 0xffffff);
+		gui.mc.fontRenderer.drawString(I18N.localise("for.gui.active"), guiLeft + 10 + COLUMN_1, guiTop + 10, 0xffffff);
+		gui.mc.fontRenderer.drawString(I18N.localise("for.gui.inactive"), guiLeft + 10 + COLUMN_2, guiTop + 10, 0xffffff);
 
 		if (renderP != null && renderS != null) {
 			RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
