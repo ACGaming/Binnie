@@ -1,10 +1,7 @@
 package binnie.botany.genetics;
 
 import binnie.botany.api.BotanyAPI;
-import binnie.botany.api.genetics.EnumFlowerChromosome;
-import binnie.botany.api.genetics.EnumFlowerColor;
-import binnie.botany.api.genetics.EnumFlowerStage;
-import binnie.botany.api.genetics.IBotanistTracker;
+import binnie.botany.api.genetics.*;
 import binnie.botany.core.BotanyCore;
 import binnie.core.Binnie;
 import binnie.core.api.genetics.IFieldKitPlugin;
@@ -73,6 +70,9 @@ public class FlowerBreedingSystem extends BreedingSystem {
 			if (allele.getUID().contains("Maximum")) {
 				return I18N.localise("binniecore.allele.fertility.maximum");
 			}
+		}
+		if (allele instanceof IAlleleFlowerColor) {
+			return ((IAlleleFlowerColor) allele).getColorName();
 		}
 		return super.getAlleleName(chromosome, allele);
 	}
