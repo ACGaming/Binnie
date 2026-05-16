@@ -400,3 +400,4 @@ genetics.config.splicer.energy=Base energy for the splicer
 genetics.config.splicer.time=Base time for the splicer
 
 forestry.allele.default=Default
+forestry.allele.silk=Silk
