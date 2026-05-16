@@ -1,6 +1,7 @@
 package binnie.genetics.item;
 
 import binnie.core.item.ItemCore;
+import binnie.core.util.I18N;
 import binnie.genetics.Genetics;
 import binnie.genetics.core.GeneticsGUI;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,7 +22,7 @@ public class ItemPunnettSquare extends ItemCore {
 
 	@Override
 	public String getItemStackDisplayName(final ItemStack itemstack) {
-		return "Punnett Square";
+		return I18N.localise("genetics.gui.punnettsquare");
 	}
 
 	@Override
