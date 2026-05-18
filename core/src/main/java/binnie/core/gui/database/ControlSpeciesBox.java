@@ -41,7 +41,7 @@ public class ControlSpeciesBox extends ControlListBox<IAlleleSpecies> {
 			final Collection<IAlleleSpecies> speciesList3 = db.isMaster() ? breedingSystem.getAllSpecies() : breedingSystem.getDiscoveredSpecies(db.getWorld(), playerName);
 			if (branch != null) {
 				for (final IAlleleSpecies species : branch.getMemberSpecies()) {
-					if (speciesList3.contains(species)) {
+					if (!speciesList2.contains(species) && speciesList3.contains(species)) {
 						speciesList2.add(species);
 					}
 				}
