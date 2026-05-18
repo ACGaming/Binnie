@@ -1,10 +1,11 @@
 package binnie.extratrees.genetics.fruits;
 
+import binnie.core.util.I18N;
 import forestry.api.genetics.IFruitFamily;
 
 public enum ETFruitFamily implements IFruitFamily {
-	BERRY("Berries", "berry", "berri"),
-	CITRUS("Citrus", "citrus", "citrus");
+	BERRY("extratrees.genetics.fruits.berry", "berry", "berri"),
+	CITRUS("extratrees.genetics.fruits.citrus", "citrus", "citrus");
 
 	private final String name;
 	private final String uid;
@@ -23,7 +24,7 @@ public enum ETFruitFamily implements IFruitFamily {
 
 	@Override
 	public String getName() {
-		return this.name;
+		return I18N.localise(this.name);
 	}
 
 	@Override
@@ -33,6 +34,6 @@ public enum ETFruitFamily implements IFruitFamily {
 
 	@Override
 	public String getDescription() {
-		return this.name;
+		return I18N.localise(this.name);
 	}
 }
