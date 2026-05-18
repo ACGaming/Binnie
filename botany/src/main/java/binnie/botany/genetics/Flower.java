@@ -84,10 +84,10 @@ public class Flower extends Individual implements IFlower {
 		}
 
 		list.add(TextFormatting.GOLD + I18N.localise("item.botany.flower.age", getAge()));
-		list.add(TextFormatting.GREEN + "T: " + getGenome().getPrimary().getTemperature() + " / " + getGenome().getToleranceTemperature());
-		list.add(TextFormatting.AQUA + "M: " + getGenome().getPrimary().getMoisture() + " / " + getGenome().getToleranceMoisture());
-		list.add(TextFormatting.AQUA + "pH: " + getGenome().getPrimary().getHumidity() + " / " + getGenome().getTolerancePH());
-		list.add(TextFormatting.GOLD + "Fert: " + getGenome().getFertility() + 'x');
+		list.add(TextFormatting.GREEN + I18N.localise("item.botany.flower.temperature", getGenome().getPrimary().getTemperature()) + " / " + getGenome().getToleranceTemperature());
+		list.add(TextFormatting.AQUA + I18N.localise("item.botany.flower.moisture", getGenome().getPrimary().getMoisture()) + " / " + getGenome().getToleranceMoisture());
+		list.add(TextFormatting.AQUA + I18N.localise("item.botany.flower.ph", getGenome().getPrimary().getPH()) + " / " + getGenome().getTolerancePH());
+		list.add(TextFormatting.GOLD + I18N.localise("item.botany.flower.fertility", getGenome().getFertility()));
 	}
 
 	@Override
