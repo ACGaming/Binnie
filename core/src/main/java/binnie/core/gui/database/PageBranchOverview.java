@@ -31,7 +31,7 @@ public class PageBranchOverview extends PageBranch {
 
 	@Override
 	public void onValueChanged(final IClassification branch) {
-		this.branchName.setValue(TextFormatting.UNDERLINE + I18N.localise(DatabaseConstants.BRANCH_KEY + ".name", branch.getName()));
+		this.branchName.setValue(TextFormatting.UNDERLINE + I18N.localise(DatabaseConstants.BRANCH_KEY + ".name", branch.getName().contains(".") ? branch.getScientific() : branch.getName()));
 		this.branchScientific.setValue(TextFormatting.ITALIC + I18N.localise(DatabaseConstants.BRANCH_KEY + ".apidae", branch.getScientific()));
 		this.branchAuthority.setValue(I18N.localise(DatabaseConstants.BRANCH_KEY + ".discoveredBy", TextFormatting.BOLD + branch.getMemberSpecies()[0].getAuthority()));
 		for (final IWidget widget : this.branchDescription) {
