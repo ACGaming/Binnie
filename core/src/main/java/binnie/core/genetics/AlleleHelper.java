@@ -90,17 +90,17 @@ public class AlleleHelper extends forestry.core.genetics.alleles.AlleleHelper {
 		return AlleleManager.climateHelper.toDisplay(humidity);
 	}
 
-	//	public static String toDisplay(EnumMoisture moisture) {
-	//		return I18N.localise("botany.moisture." + moisture.getName());
-	//	}
-	//
-	//	public static String toDisplay(EnumAcidity acidity) {
-	//		return I18N.localise("botany.ph." + acidity.getName());
-	//	}
-	//
-	//	public static String toDisplay(EnumSoilType soilType) {
-	//		return I18N.localise("botany.soil." + soilType.getName());
-	//	}
+	public static String toDisplayMoisture(String moisture) {
+		return I18N.localise("botany.moisture." + moisture);
+	}
+
+	public static String toDisplayAcidity(String acidity) {
+		return I18N.localise("botany.ph." + acidity);
+	}
+
+	public static String toDisplaySoilType(String soilType) {
+		return I18N.localise("botany.soil." + soilType);
+	}
 
 	public static String toDisplay(EnumTolerance tolerance) {
 		return toAlleleDisplay("tolerance", tolerance.name());

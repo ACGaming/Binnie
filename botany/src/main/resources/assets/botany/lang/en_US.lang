@@ -88,10 +88,11 @@ botany.tube.material.bronze.name=Bronze
 
 item.botany.flower.destroy=This item is bugged. Destroy it!
 item.botany.flower.age=Age: %s
-item.botany.flower.temperature=T: %s
-item.botany.flower.moisture=M: %s
-item.botany.flower.ph=pH: %s
-item.botany.flower.fertility=Fert: %s x
+item.botany.flower.temperature=T: %s / %s
+item.botany.flower.moisture=M: %s / %s
+item.botany.flower.ph=pH: %s / %s
+item.botany.flower.fertility=Fert: %sx
+
 item.botany.grammar.flower=%s, %s Stem
 item.botany.grammar.flower.secondary=%s and %s, %s Stem
 

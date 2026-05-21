@@ -8,6 +8,7 @@ import binnie.botany.api.genetics.IFlowerColor;
 import binnie.botany.api.genetics.IFlowerGenome;
 import binnie.botany.api.genetics.IFlowerMutation;
 import binnie.botany.core.BotanyCore;
+import binnie.core.genetics.AlleleHelper;
 import binnie.core.util.I18N;
 import forestry.api.genetics.IChromosome;
 import forestry.core.genetics.Chromosome;
@@ -84,9 +85,9 @@ public class Flower extends Individual implements IFlower {
 		}
 
 		list.add(TextFormatting.GOLD + I18N.localise("item.botany.flower.age", getAge()));
-		list.add(TextFormatting.GREEN + I18N.localise("item.botany.flower.temperature", getGenome().getPrimary().getTemperature()) + " / " + getGenome().getToleranceTemperature());
-		list.add(TextFormatting.AQUA + I18N.localise("item.botany.flower.moisture", getGenome().getPrimary().getMoisture()) + " / " + getGenome().getToleranceMoisture());
-		list.add(TextFormatting.AQUA + I18N.localise("item.botany.flower.ph", getGenome().getPrimary().getPH()) + " / " + getGenome().getTolerancePH());
+		list.add(TextFormatting.GREEN + I18N.localise("item.botany.flower.temperature", AlleleHelper.toDisplay(getGenome().getPrimary().getTemperature()), AlleleHelper.toDisplay(getGenome().getToleranceTemperature())));
+		list.add(TextFormatting.AQUA + I18N.localise("item.botany.flower.moisture", AlleleHelper.toDisplayMoisture(getGenome().getPrimary().getMoisture().getName()), AlleleHelper.toDisplay(getGenome().getToleranceMoisture())));
+		list.add(TextFormatting.AQUA + I18N.localise("item.botany.flower.ph", AlleleHelper.toDisplayAcidity(getGenome().getPrimary().getPH().getName()), AlleleHelper.toDisplay(getGenome().getTolerancePH())));
 		list.add(TextFormatting.GOLD + I18N.localise("item.botany.flower.fertility", getGenome().getFertility()));
 	}
 
