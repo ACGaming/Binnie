@@ -12,6 +12,7 @@ import binnie.core.machines.inventory.InventorySlot;
 import binnie.core.machines.inventory.SlotValidator;
 import binnie.core.machines.inventory.TankValidator;
 import binnie.core.machines.power.ComponentPowerReceptor;
+import binnie.core.util.I18N;
 import binnie.genetics.api.IItemSerum;
 import binnie.genetics.core.GeneticsGUI;
 import binnie.genetics.genetics.Engineering;
