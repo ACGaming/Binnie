@@ -93,7 +93,7 @@ public class PackageInoculator extends GeneticMachine.PackageGeneticBase impleme
 
 		@Override
 		public String getTooltip() {
-			return "Serum Vials & Arrays";
+			return I18N.localise("binniecore.gui.serum.vials.arrays");
 		}
 	}
 
@@ -105,7 +105,7 @@ public class PackageInoculator extends GeneticMachine.PackageGeneticBase impleme
 
 		@Override
 		public String getTooltip() {
-			return GeneticLiquid.BacteriaVector.toString();
+			return GeneticLiquid.BacteriaVector.get(1).getLocalizedName();
 		}
 	}
 }
