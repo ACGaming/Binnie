@@ -58,11 +58,15 @@ public class ControlBiomes extends Control implements ITooltip {
 			int y = i / 8 * 16;
 			int id = tolerated.get(i);
 			Biome biome = Biome.getBiome(id);
+			Area area = new Area(x, y, 16, 16);
+			CraftGUI.RENDER.colour(0xFFAAAAAA);
+			CraftGUI.RENDER.texture(CraftGUITexture.BUTTON, area);
 			if (biome != null) {
-				//TODO FIND COLOR
-				CraftGUI.RENDER.colour(biome.color);
+				int color = 0x99000000 | biome.color;
+				CraftGUI.RENDER.colour(color);
+				CraftGUI.RENDER.rectangle(area);
 			}
-			CraftGUI.RENDER.texture(CraftGUITexture.BUTTON, new Area(x, y, 16, 16));
+			CraftGUI.RENDER.colour(0xFFFFFFFF);
 		}
 	}
 
