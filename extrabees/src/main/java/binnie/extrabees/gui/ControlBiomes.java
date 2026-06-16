@@ -8,6 +8,7 @@ import binnie.core.gui.Tooltip;
 import binnie.core.gui.controls.core.Control;
 import binnie.core.gui.geometry.Area;
 import binnie.core.gui.resource.textures.CraftGUITexture;
+import binnie.core.util.I18N;
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.apiculture.IBee;
@@ -45,7 +46,7 @@ public class ControlBiomes extends Control implements ITooltip {
 
 		Biome biome = Biome.getBiome(tolerated.get(i));
 		if (biome != null) {
-			tooltip.add(biome.getBiomeName());
+			tooltip.add(I18N.localise("biome." + biome.getRegistryName().toString().replace(":", ".") + ".name"));
 		}
 	}
 
@@ -55,9 +56,11 @@ public class ControlBiomes extends Control implements ITooltip {
 		for (int i = 0; i < tolerated.size(); ++i) {
 			int x = i % 8 * 16;
 			int y = i / 8 * 16;
-			if (Biome.getBiome(i) != null) {
+			int id = tolerated.get(i);
+			Biome biome = Biome.getBiome(id);
+			if (biome != null) {
 				//TODO FIND COLOR
-				//CraftGUI.Render.colour(Biome.getBiome(i).color);
+				CraftGUI.RENDER.colour(biome.color);
 			}
 			CraftGUI.RENDER.texture(CraftGUITexture.BUTTON, new Area(x, y, 16, 16));
 		}
@@ -67,5 +70,6 @@ public class ControlBiomes extends Control implements ITooltip {
 		tolerated.clear();
 		IBeeGenome genome = BeeManager.beeRoot.templateAsGenome(BeeManager.beeRoot.getTemplate(species));
 		IBee bee = BeeManager.beeRoot.getBee(genome);
+		tolerated.addAll(bee.getToleratedBiomeIds());
 	}
 }
