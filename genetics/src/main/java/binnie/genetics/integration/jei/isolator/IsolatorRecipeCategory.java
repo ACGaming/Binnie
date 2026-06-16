@@ -4,6 +4,7 @@ import binnie.genetics.Genetics;
 import binnie.genetics.integration.jei.GeneticsJeiPlugin;
 import binnie.genetics.integration.jei.RecipeUids;
 import binnie.genetics.machine.isolator.Isolator;
+import binnie.core.util.I18N;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableAnimated;
 import mezz.jei.api.gui.IGuiFluidStackGroup;
@@ -31,7 +32,7 @@ public class IsolatorRecipeCategory implements IRecipeCategory<IsolatorRecipeWra
 
 	@Override
 	public String getTitle() {
-		return "Gene Isolation";
+		return I18N.localise("genetics.machine.isolator.jeiTitle");
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class IsolatorRecipeCategory implements IRecipeCategory<IsolatorRecipeWra
 		arrow.draw(minecraft, 69, 25);
 		arrowAnimated.draw(minecraft, 69, 25);
 
-		String randomText = "(Random)";
+		String randomText = "(" + I18N.localise("genetics.machine.isolator.jeiText") + ")";
 		int textWidth = minecraft.fontRenderer.getStringWidth(randomText);
 		minecraft.fontRenderer.drawString(randomText, 102 - (textWidth / 2), 45, Color.gray.getRGB());
 	}
