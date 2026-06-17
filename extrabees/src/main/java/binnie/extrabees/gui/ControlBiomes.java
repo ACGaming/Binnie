@@ -46,7 +46,7 @@ public class ControlBiomes extends Control implements ITooltip {
 
 		Biome biome = Biome.getBiome(tolerated.get(i));
 		if (biome != null) {
-			tooltip.add(I18N.localise("biome." + biome.getRegistryName().toString().replace(":", ".") + ".name"));
+			tooltip.add(biome.getBiomeName());
 		}
 	}
 
