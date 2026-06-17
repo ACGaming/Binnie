@@ -328,6 +328,7 @@ binniecore.gui.info.title=Info
 binniecore.gui.power.title=Power Supply
 binniecore.gui.power.desc=Powered by %s
 binniecore.gui.user.title=Owner
+binniecore.gui.serum.vials.arrays=Serum Vials & Arrays
 binniecore.gui.possible.mutagens=Possible Mutagens:
 binniecore.gui.multiplier=Multiplier: %s
 
@@ -363,6 +364,7 @@ binniecore.gui.slot.yeast=Yeast Slot
 binniecore.gui.slot.inventory=Machine Inventory
 binniecore.gui.slot.player.inventory=Player Inventory
 binniecore.gui.slot.individual.inventory=Breedable Individual
+binniecore.gui.slot.inoculable.individual=Inoculable Individual
 binniecore.gui.slot.any.item=Any Item
 binniecore.gui.slot.hive.frame=Hive Frames
 binniecore.gui.slot.larvae=Larvae
