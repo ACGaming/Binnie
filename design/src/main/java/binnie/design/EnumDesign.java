@@ -476,7 +476,7 @@ public enum EnumDesign implements IDesign {
 
 		@Override
 		public String getName() {
-			String Key = "design.category." + this.name().toLowerCase();
+			String Key = "binniedesign.category." + this.name().toLowerCase();
 			String title = I18N.localise(Key);
 			return title.equals(Key) ? this.name : title;
 		}
