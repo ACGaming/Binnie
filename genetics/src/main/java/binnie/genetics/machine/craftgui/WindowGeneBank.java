@@ -31,7 +31,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -125,7 +124,7 @@ public class WindowGeneBank extends WindowMachine {
 				}
 			}
 		}
-		new ControlText(panelProject, new Point(4, 4), TextFormatting.UNDERLINE + I18N.localise("genetics.gui.database.genebank.fullgenome"));
+		new ControlText(panelProject, new Point(4, 4), I18N.localise("genetics.gui.database.genebank.fullgenome"));
 		new ControlText(panelProject, new Point(4, 18), I18N.localise("genetics.gui.database.genebank.sequenced", seqGenes, totalGenes));
 	}
 
