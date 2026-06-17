@@ -372,7 +372,7 @@ genetics.gui.database.genebank.title=Gene Bank
 genetics.gui.database.genebank.tab.info=Info
 genetics.gui.database.genebank.tab.stats=Stats
 genetics.gui.database.genebank.tab.ranking=Ranking
-genetics.gui.database.genebank.fullgenome=Full Genome Project
+genetics.gui.database.genebank.fullgenome=§nFull Genome Project
 genetics.gui.database.genebank.sequenced=§oSequenced §r%1$s/%2$s §oGenes
 genetics.gui.database.genebank.gene.count=%1$s/%2$s Genes
 
