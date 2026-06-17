@@ -94,7 +94,7 @@ public class PackageInoculator extends GeneticMachine.PackageGeneticBase impleme
 
 		@Override
 		public String getTooltip() {
-			return I18N.localise("binniecore.gui.serum.vials.arrays");
+			return I18N.localise("genetics.machine.adv_machine.splicer.tooltips.slots.serum");
 		}
 	}
 
