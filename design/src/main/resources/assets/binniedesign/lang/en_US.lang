@@ -9,6 +9,7 @@ binniedesign.gui.design=Design
 ## Design Patterns
 ##################################################
 
+binniedesign.pattern.and=%s and %s
 binniedesign.pattern.blank=Blank
 binniedesign.pattern.octagon=Octagon
 binniedesign.pattern.diamond=Diamond
@@ -47,6 +48,12 @@ binniedesign.pattern.barred.corner=Barred Corner
 binniedesign.pattern.thick.barred.corner=Thick Barred Corner
 binniedesign.pattern.thin.striped.corner=Thin Striped Corner
 binniedesign.pattern.striped.corner=Striped Corner
+binniedesign.category.design=Designs & Emblems
+binniedesign.category.stripes=Squares & Stripes
+binniedesign.category.edges=Edges
+binniedesign.category.barred=Bars
+binniedesign.category.letters=Letters
+binniedesign.category.diagonal=Diagonals
 binniedesign.pattern.emblem.1=Emblem 1
 binniedesign.pattern.emblem.2=Emblem 2
 binniedesign.pattern.emblem.3=Emblem 3
