@@ -328,7 +328,6 @@ binniecore.gui.info.title=Info
 binniecore.gui.power.title=Power Supply
 binniecore.gui.power.desc=Powered by %s
 binniecore.gui.user.title=Owner
-binniecore.gui.serum.vials.arrays=Serum Vials & Arrays
 binniecore.gui.possible.mutagens=Possible Mutagens:
 binniecore.gui.multiplier=Multiplier: %s
 
