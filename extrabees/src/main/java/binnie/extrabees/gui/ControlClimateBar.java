@@ -9,7 +9,6 @@ import binnie.core.gui.controls.core.Control;
 import binnie.core.gui.geometry.Area;
 import binnie.core.gui.renderer.RenderUtil;
 import binnie.core.gui.resource.textures.CraftGUITexture;
-import binnie.core.util.I18N;
 import binnie.core.genetics.AlleleHelper;
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.IAlleleBeeSpecies;
