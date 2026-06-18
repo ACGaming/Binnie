@@ -75,6 +75,8 @@ genetics.errors.analyser.no.item.desc=No item to analyze
 genetics.machine.lab_machine.incubator=Incubator
 genetics.machine.lab_machine.incubator.jeiTitle=Incubation
 genetics.machine.lab_machine.incubator.larvae.jeiTitle=Larvae Incubation
+genetics.machine.lab_machine.incubator.jeiText1=Item
+genetics.machine.lab_machine.incubator.jeiText2=Loss
 genetics.machine.lab_machine.incubator.info=The Incubator combines liquids and items and allows them to sit at an ideal temperature to encourage bacterial growth.
 genetics.errors.incubator.insufficient.liquid.desc=Not enough incubation liquid
 
