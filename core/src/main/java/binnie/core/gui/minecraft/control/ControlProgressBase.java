@@ -35,13 +35,13 @@ public class ControlProgressBase extends Control {
 		}
 		String ts = "";
 		if (minutes > 0) {
-			ts = ts + minutes + " minute" + ((minutes == 1) ? "" : "s");
+			ts = ts + minutes + " " + ((minutes == 1) ? I18N.localise("binniecore.gui.minute.single") : I18N.localise("binniecore.gui.minute.plural"));
 		}
 		if (seconds > 0) {
 			if (ts.length() > 0) {
 				ts += " ";
 			}
-			ts = ts + seconds + " second" + ((seconds == 1) ? "" : "s");
+			ts = ts + seconds + " " + ((seconds == 1) ? I18N.localise("binniecore.gui.second.single") : I18N.localise("binniecore.gui.second.plural"));
 		}
 		return ts;
 	}
