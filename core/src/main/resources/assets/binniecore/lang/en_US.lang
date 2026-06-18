@@ -330,6 +330,10 @@ binniecore.gui.power.desc=Powered by %s
 binniecore.gui.user.title=Owner
 binniecore.gui.possible.mutagens=Possible Mutagens:
 binniecore.gui.multiplier=Multiplier: %s
+binniecore.gui.minute.single=minute
+binniecore.gui.minute.plural=minutes
+binniecore.gui.second.single=second
+binniecore.gui.second.plural=seconds
 
 # Names for slots when using help tooltip
 binniecore.gui.slot.slot=Slot
@@ -350,6 +354,7 @@ binniecore.gui.slot.acclimatiser=Acclimatiser Item Slot
 binniecore.gui.slot.analyse=Analyse Slot
 binniecore.gui.slot.dye=Dye Slot
 binniecore.gui.slot.incubator=Incubator Slot
+binniecore.gui.slots.incubator=Incubator
 binniecore.gui.slot.compartment=Compartment Slot
 binniecore.gui.slot.ingredient=Ingredient Slot
 binniecore.gui.slot.byproduct=Byproduct Slot
