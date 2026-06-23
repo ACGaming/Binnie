@@ -8,10 +8,13 @@ import binnie.core.gui.Tooltip;
 import binnie.core.gui.controls.core.Control;
 import binnie.core.gui.geometry.Area;
 import binnie.core.gui.resource.textures.CraftGUITexture;
+import binnie.core.gui.renderer.RenderUtil;
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.apiculture.IBee;
 import forestry.api.apiculture.IBeeGenome;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
@@ -21,12 +24,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControlBiomes extends Control implements ITooltip {
-	private final List<Integer> tolerated;
+	private final List<ResourceLocation> tolerated;
+	private static final BlockPos POSITION = new BlockPos(0, 64, 0);
 
 	public ControlBiomes(IWidget parent, int x, int y, int width, int height) {
 		super(parent, x, y, width * 16, height * 16);
 		tolerated = new ArrayList<>();
 		addAttribute(Attribute.MOUSE_OVER);
+	}
+
+	private Biome getBiome(ResourceLocation Id) {
+        return Biome.REGISTRY.getObject(Id);
+    }
+
+	private Biome getToleratedBiome(int i) {
+		if (i >= tolerated.size()) {
+			return null;
+		}
+		ResourceLocation resourceLocation = tolerated.get(i);
+		return getBiome(resourceLocation);
 	}
 
 	@Override
@@ -43,7 +59,7 @@ public class ControlBiomes extends Control implements ITooltip {
 			return;
 		}
 
-		Biome biome = Biome.getBiome(tolerated.get(i));
+		Biome biome = getToleratedBiome(i);
 		if (biome != null) {
 			tooltip.add(biome.getBiomeName());
 		}
@@ -55,11 +71,17 @@ public class ControlBiomes extends Control implements ITooltip {
 		for (int i = 0; i < tolerated.size(); ++i) {
 			int x = i % 8 * 16;
 			int y = i / 8 * 16;
-			if (Biome.getBiome(i) != null) {
-				//TODO FIND COLOR
-				//CraftGUI.Render.colour(Biome.getBiome(i).color);
+			Area area = new Area(x, y, 16, 16);
+
+			Biome biome = getToleratedBiome(i);
+			int color;
+			if (biome != null) {
+				color = biome.getGrassColorAtPos(POSITION);
+			} else {
+				color = 0x555555;
 			}
-			CraftGUI.RENDER.texture(CraftGUITexture.BUTTON, new Area(x, y, 16, 16));
+			RenderUtil.drawSolidRect(area, color);
+			CraftGUI.RENDER.texture(CraftGUITexture.BUTTON, area);
 		}
 	}
 
@@ -67,5 +89,12 @@ public class ControlBiomes extends Control implements ITooltip {
 		tolerated.clear();
 		IBeeGenome genome = BeeManager.beeRoot.templateAsGenome(BeeManager.beeRoot.getTemplate(species));
 		IBee bee = BeeManager.beeRoot.getBee(genome);
+
+		for (Biome biome : bee.getSuitableBiomes()) {
+			ResourceLocation register = biome.getRegistryName();
+			if (register != null) {
+				tolerated.add(register);
+			}
+		}
 	}
 }
