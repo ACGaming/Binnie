@@ -19,7 +19,7 @@ public class PageSpeciesClimate extends PageSpecies {
 		tempBar = new ControlClimateBar(this, 8, 24, 128, 12);
 		humidBar = new ControlClimateBar(this, 8, 42, 128, 12, true);
 		new ControlTextCentered(this, 70, I18N.localise("binniecore.gui.database.biomes"));
-		biomes = new ControlBiomes(this, 8, 90, 8, 4);
+		biomes = new ControlBiomes(this, 8, 90, 128, 64);
 	}
 
 	@Override
