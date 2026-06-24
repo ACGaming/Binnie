@@ -6,9 +6,12 @@ import binnie.core.gui.CraftGUI;
 import binnie.core.gui.ITooltip;
 import binnie.core.gui.Tooltip;
 import binnie.core.gui.controls.core.Control;
+import binnie.core.gui.controls.scroll.ControlScrollableContent;
 import binnie.core.gui.geometry.Area;
+import binnie.core.gui.geometry.Point;
 import binnie.core.gui.resource.textures.CraftGUITexture;
 import binnie.core.gui.renderer.RenderUtil;
+import binnie.core.util.I18N;
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.apiculture.IBee;
@@ -23,14 +26,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControlBiomes extends Control implements ITooltip {
+public class ControlBiomes extends ControlScrollableContent<Control> implements ITooltip {
 	private final List<ResourceLocation> tolerated;
+	private final Control content;
 	private static final BlockPos POSITION = new BlockPos(0, 64, 0);
 
 	public ControlBiomes(IWidget parent, int x, int y, int width, int height) {
-		super(parent, x, y, width * 16, height * 16);
+		super(parent, x, y, width, height, 16);
 		tolerated = new ArrayList<>();
 		addAttribute(Attribute.MOUSE_OVER);
+		content = new Control(this, 0, 0, width - 16, 0);
+		setScrollableContent(content);
 	}
 
 	private Biome getBiome(ResourceLocation Id) {
@@ -52,8 +58,14 @@ public class ControlBiomes extends Control implements ITooltip {
 			return;
 		}
 
-		int x = (int) (getRelativeMousePosition().xPos() / 16.0f);
-		int y = (int) (getRelativeMousePosition().yPos() / 16.0f);
+		float mouseX = getRelativeMousePosition().xPos();
+		float mouseY = getRelativeMousePosition().yPos();
+		if (mouseX >= getSize().xPos() - 16) {
+			return;
+		}
+		
+		int x = (int) (mouseX / 16.0f);
+		int y = (int) (mouseY / 16.0f);
 		int i = x + y * 8;
 		if (i >= tolerated.size()) {
 			return;
@@ -61,7 +73,8 @@ public class ControlBiomes extends Control implements ITooltip {
 
 		Biome biome = getToleratedBiome(i);
 		if (biome != null) {
-			tooltip.add(biome.getBiomeName());
+			String text = I18N.localise(biome.getRegistryName().toString());
+			tooltip.add(text);
 		}
 	}
 
@@ -73,6 +86,7 @@ public class ControlBiomes extends Control implements ITooltip {
 			int y = i / 8 * 16;
 			Area area = new Area(x, y, 16, 16);
 
+			CraftGUI.RENDER.texture(CraftGUITexture.BUTTON, area);
 			Biome biome = getToleratedBiome(i);
 			int color;
 			if (biome != null) {
@@ -80,8 +94,8 @@ public class ControlBiomes extends Control implements ITooltip {
 			} else {
 				color = 0x555555;
 			}
-			RenderUtil.drawSolidRect(area, color);
-			CraftGUI.RENDER.texture(CraftGUITexture.BUTTON, area);
+			RenderUtil.drawSolidRect(area, (180 << 24) | (color & 0x00FFFFFF));
+			
 		}
 	}
 
@@ -96,5 +110,8 @@ public class ControlBiomes extends Control implements ITooltip {
 				tolerated.add(register);
 			}
 		}
+		int rows = (int) Math.ceil(tolerated.size() / 8.0f);
+		content.setSize(new Point(content.getSize().xPos(), rows * 16));
+		movePercentage(-100f);
 	}
 }
