@@ -35,7 +35,27 @@ public class ControlBiomes extends ControlScrollableContent<Control> implements 
 		super(parent, x, y, width, height, 16);
 		tolerated = new ArrayList<>();
 		addAttribute(Attribute.MOUSE_OVER);
-		content = new Control(this, 0, 0, width - 16, 0);
+		content = new Control(this, 0, 0, width - getScrollBarSize(), height) {
+			@Override
+			@SideOnly(Side.CLIENT)
+			public void onRenderForeground(int guiWidth, int guiHeight) {
+				for (int i = 0; i < tolerated.size(); ++i) {
+					int x = i % 7 * 16;
+					int y = i / 7 * 16;
+					Area area = new Area(x, y, 16, 16);
+
+					CraftGUI.RENDER.texture(CraftGUITexture.BUTTON, area);
+					Biome biome = getToleratedBiome(i);
+					int color;
+					if (biome != null) {
+						color = biome.getGrassColorAtPos(POSITION);
+					} else {
+						color = 0x555555;
+					}
+					RenderUtil.drawSolidRect(area, (180 << 24) | (color & 0x00FFFFFF));
+				}
+			}
+		};
 		setScrollableContent(content);
 	}
 
@@ -47,8 +67,7 @@ public class ControlBiomes extends ControlScrollableContent<Control> implements 
 		if (i >= tolerated.size()) {
 			return null;
 		}
-		ResourceLocation resourceLocation = tolerated.get(i);
-		return getBiome(resourceLocation);
+		return getBiome(tolerated.get(i));
 	}
 
 	@Override
@@ -57,47 +76,33 @@ public class ControlBiomes extends ControlScrollableContent<Control> implements 
 		if (tolerated.isEmpty()) {
 			return;
 		}
-
-		float mouseX = getRelativeMousePosition().xPos();
-		float mouseY = getRelativeMousePosition().yPos();
-		if (mouseX >= getSize().xPos() - 16) {
+		if (getRelativeMousePosition().xPos() >= getSize().xPos() - getScrollBarSize()) {
 			return;
 		}
-		
-		int x = (int) (mouseX / 16.0f);
-		int y = (int) (mouseY / 16.0f);
-		int i = x + y * 8;
+
+		float contentX = content.getRelativeMousePosition().xPos();
+		float contentY = content.getRelativeMousePosition().yPos();
+		int x = (int) (contentX / 16.0f);
+		int y = (int) (contentY / 16.0f);
+		int i = x + y * 7;
 		if (i >= tolerated.size()) {
 			return;
 		}
 
 		Biome biome = getToleratedBiome(i);
 		if (biome != null) {
-			String text = I18N.localise(biome.getRegistryName().toString());
+			String Key = "biome." + biome.getRegistryName().toString().replace(":", ".");
+			String text = I18N.localise(Key);
+			if (text.equals(Key)) {
+				text = biome.getBiomeName();
+			}
 			tooltip.add(text);
 		}
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void onRenderForeground(int guiWidth, int guiHeight) {
-		for (int i = 0; i < tolerated.size(); ++i) {
-			int x = i % 8 * 16;
-			int y = i / 8 * 16;
-			Area area = new Area(x, y, 16, 16);
-
-			CraftGUI.RENDER.texture(CraftGUITexture.BUTTON, area);
-			Biome biome = getToleratedBiome(i);
-			int color;
-			if (biome != null) {
-				color = biome.getGrassColorAtPos(POSITION);
-			} else {
-				color = 0x555555;
-			}
-			RenderUtil.drawSolidRect(area, (180 << 24) | (color & 0x00FFFFFF));
-			
-		}
-	}
+	public void onRenderForeground(int guiWidth, int guiHeight) {}
 
 	public void setSpecies(IAlleleBeeSpecies species) {
 		tolerated.clear();
@@ -110,7 +115,7 @@ public class ControlBiomes extends ControlScrollableContent<Control> implements 
 				tolerated.add(register);
 			}
 		}
-		int rows = (int) Math.ceil(tolerated.size() / 8.0f);
+		int rows = (int) Math.ceil(tolerated.size() / 7.0f);
 		content.setSize(new Point(content.getSize().xPos(), rows * 16));
 		movePercentage(-100f);
 	}
