@@ -9,6 +9,7 @@ import binnie.core.gui.controls.core.Control;
 import binnie.core.gui.geometry.Area;
 import binnie.core.gui.renderer.RenderUtil;
 import binnie.core.gui.resource.textures.CraftGUITexture;
+import binnie.core.genetics.AlleleHelper;
 import forestry.api.apiculture.BeeManager;
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.apiculture.IBeeGenome;
@@ -65,9 +66,9 @@ public class ControlClimateBar extends Control implements ITooltip {
 		}
 
 		if (isHumidity) {
-			tooltip.add(EnumHumidity.values()[type].name);
+			tooltip.add(AlleleHelper.toDisplay(EnumHumidity.values()[type]));
 		} else {
-			tooltip.add(EnumTemperature.values()[type + 1].name);
+			tooltip.add(AlleleHelper.toDisplay(EnumTemperature.values()[type + 1]));
 		}
 	}
 

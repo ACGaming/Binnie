@@ -4,6 +4,7 @@ import binnie.extratrees.ExtraTrees;
 import binnie.extratrees.integration.jei.ExtraTreesJeiPlugin;
 import binnie.extratrees.integration.jei.RecipeUids;
 import binnie.extratrees.machines.lumbermill.LumbermillMachine;
+import binnie.core.util.I18N;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableAnimated;
 import mezz.jei.api.gui.IGuiFluidStackGroup;
@@ -27,7 +28,7 @@ public class LumbermillRecipeCategory implements IRecipeCategory<LumbermillRecip
 
 	@Override
 	public String getTitle() {
-		return "Lumbermill";
+		return I18N.localise("extratrees.machine.lumbermill.jeiTitle");
 	}
 
 	@Override

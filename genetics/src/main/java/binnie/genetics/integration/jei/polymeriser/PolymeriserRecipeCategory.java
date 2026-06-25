@@ -4,6 +4,7 @@ import binnie.genetics.Genetics;
 import binnie.genetics.integration.jei.GeneticsJeiPlugin;
 import binnie.genetics.integration.jei.RecipeUids;
 import binnie.genetics.machine.polymeriser.Polymeriser;
+import binnie.core.util.I18N;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableAnimated;
 import mezz.jei.api.gui.IGuiFluidStackGroup;
@@ -21,7 +22,7 @@ public class PolymeriserRecipeCategory implements IRecipeCategory<PolymeriserRec
 
 	@Override
 	public String getTitle() {
-		return "Polymerisation";
+		return I18N.localise("genetics.machine.polymeriser.jeiTitle");
 	}
 
 	@Override
@@ -57,7 +58,7 @@ public class PolymeriserRecipeCategory implements IRecipeCategory<PolymeriserRec
 
 		itemStacks.addTooltipCallback((slotIndex, input, ingredient, tooltip) -> {
 			if (slotIndex == 1) {
-				tooltip.add("5x Processing Speed");
+				tooltip.add(I18N.localise("genetics.machine.polymeriser.jeiTooltip"));
 			}
 		});
 

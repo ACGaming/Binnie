@@ -7,6 +7,7 @@ import binnie.core.gui.ITooltip;
 import binnie.core.gui.Tooltip;
 import binnie.core.gui.controls.core.Control;
 import binnie.core.gui.resource.textures.CraftGUITexture;
+import binnie.core.util.I18N;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -29,7 +30,7 @@ public class ControlInfo extends Control implements ITooltip {
 	@Override
 	public void getTooltip(final Tooltip tooltip, ITooltipFlag tooltipFlag) {
 		tooltip.setType(Tooltip.Type.INFORMATION);
-		tooltip.add("Info");
+		tooltip.add(I18N.localise("binniecore.gui.info.title"));
 		tooltip.add(this.info);
 		tooltip.setMaxWidth(200);
 	}

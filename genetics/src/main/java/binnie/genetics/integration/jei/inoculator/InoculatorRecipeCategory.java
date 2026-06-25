@@ -1,6 +1,7 @@
 package binnie.genetics.integration.jei.inoculator;
 
 import binnie.core.genetics.Gene;
+import binnie.core.util.I18N;
 import binnie.genetics.Genetics;
 import binnie.genetics.integration.jei.GeneticsJeiPlugin;
 import binnie.genetics.integration.jei.RecipeUids;
@@ -42,7 +43,7 @@ public class InoculatorRecipeCategory implements IRecipeCategory<InoculatorRecip
 
 	@Override
 	public String getTitle() {
-		return "Inoculation";
+		return I18N.localise("genetics.machine.inoculator.jeiTitle");
 	}
 
 	@Override

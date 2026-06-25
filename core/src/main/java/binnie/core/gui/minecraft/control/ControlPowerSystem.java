@@ -8,6 +8,7 @@ import binnie.core.gui.Tooltip;
 import binnie.core.gui.controls.core.Control;
 import binnie.core.gui.resource.textures.CraftGUITexture;
 import binnie.core.machines.power.PowerSystem;
+import binnie.core.util.I18N;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -30,8 +31,8 @@ public class ControlPowerSystem extends Control implements ITooltip {
 	@Override
 	public void getTooltip(final Tooltip tooltip, ITooltipFlag tooltipFlag) {
 		tooltip.setType(Tooltip.Type.POWER);
-		tooltip.add("Power Supply");
-		tooltip.add("Powered by " + this.system.getUnitName());
+		tooltip.add(I18N.localise("binniecore.gui.power.title"));
+		tooltip.add(I18N.localise("binniecore.gui.power.desc", this.system.getUnitName()));
 		tooltip.setMaxWidth(200);
 	}
 }

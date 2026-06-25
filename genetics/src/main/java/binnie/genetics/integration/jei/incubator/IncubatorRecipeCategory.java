@@ -4,6 +4,7 @@ import binnie.genetics.Genetics;
 import binnie.genetics.integration.jei.GeneticsJeiPlugin;
 import binnie.genetics.integration.jei.RecipeUids;
 import binnie.genetics.machine.incubator.Incubator;
+import binnie.core.util.I18N;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableAnimated;
 import mezz.jei.api.gui.IGuiFluidStackGroup;
@@ -27,7 +28,7 @@ public class IncubatorRecipeCategory implements IRecipeCategory<IncubatorRecipeW
 
 	@Override
 	public String getTitle() {
-		return "Incubation";
+		return I18N.localise("genetics.machine.lab_machine.incubator.jeiTitle");
 	}
 
 	@Override

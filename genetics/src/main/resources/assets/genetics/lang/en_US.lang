@@ -17,12 +17,15 @@ genetics.errors.defunct.serum.desc=Individual already possesses this allele
 genetics.errors.no.enzyme.desc=No enzyme
 
 genetics.machine.isolator=Isolator
+genetics.machine.isolator.jeiTitle=Gene Isolation
+genetics.machine.isolator.jeiText=Random
 genetics.machine.isolator.info=The Isolator takes a random allele from a bee, tree or other individual and copies it into an empty sequence vial. This requires the use of ethanol as a solvent and an enzyme to cut up the DNA. The unsequenced serums can then be amplified in a Polymeriser and sequenced in a Sequencer.
 genetics.errors.isolator.no.room.desc=No room for DNA sequences
 genetics.errors.isolator.no.empty.sequencer.desc=No empty sequencer vials
 genetics.errors.isolator.insufficient.ethanol.desc=Insufficient Ethanol
 
 genetics.machine.sequencer=Sequencer
+genetics.machine.sequencer.jeiTitle=Sequencing
 genetics.machine.sequencer.info=The Sequencer takes unsequenced serums and determines which allele is present in them. This process is slow and requires the use of fluorescent dye.
 genetics.errors.sequencer.insufficient.dye.desc=Insufficient Dye
 genetics.errors.sequencer.no.space.desc=No space for empty sequences
@@ -32,6 +35,8 @@ genetics.machine.sequencer.texts.sequenced.by=Genes will be sequenced by %s
 genetics.machine.sequencer.tooltips.slots.unsequenced.dna=Unsequenced DNA
 
 genetics.machine.polymeriser=Polymeriser
+genetics.machine.polymeriser.jeiTitle=Polymerisation
+genetics.machine.polymeriser.jeiTooltip=5x Processing Speed
 genetics.machine.polymeriser.info=The Polymeriser fills empty serums with Raw DNA and replicating bacteria. This process can be accelerated using gold nuggets.
 genetics.machine.polymeriser.tooltips.logic.gene=Replicating 1 genes
 genetics.machine.polymeriser.tooltips.logic.genes=Replicating %s geness
@@ -42,12 +47,15 @@ genetics.errors.polymeriser.insufficient.bacteria.desc=Insufficient Bacteria
 genetics.errors.polymeriser.insufficient.dna.desc=Insufficient DNA
 
 genetics.machine.inoculator=Inoculator
+genetics.machine.inoculator.jeiTitle=Inoculation
+genetics.machine.inoculator.splicer.jeiTitle=Splicing
 genetics.machine.inoculator.info=The Inoculator uses serums to add genes to breedable individuals. This process is very slow and requires a Bacteria Vector, but is always successful.
 genetics.machine.inoculator.tooltips.logic.gene=Inoculating with 1 gene
 genetics.machine.inoculator.tooltips.logic.genes=Inoculating with %s genes
 genetics.errors.inoculator.insufficient.vector=Not enough Vector
 
 genetics.machine.lab_machine.genepool=Genepool
+genetics.machine.lab_machine.genepool.jeiTitle=Gene Breaking
 genetics.machine.lab_machine.genepool.info=The Genepool uses enzymes and ethanol to break down living things into DNA. During this process, all genetic information is lost and the source of the DNA is destroyed.
 genetics.errors.genepool.insufficient.ethanol.desc=Insufficient Ethanol
 genetics.errors.genepool.insufficient.enzyme.desc=Insufficient Enzyme
@@ -65,6 +73,10 @@ genetics.errors.analyser.already.analysed.name=Item has already been analyzed
 genetics.errors.analyser.no.item.desc=No item to analyze
 
 genetics.machine.lab_machine.incubator=Incubator
+genetics.machine.lab_machine.incubator.jeiTitle=Incubation
+genetics.machine.lab_machine.incubator.larvae.jeiTitle=Larvae Incubation
+genetics.machine.lab_machine.incubator.jeiText1=Item
+genetics.machine.lab_machine.incubator.jeiText2=Loss
 genetics.machine.lab_machine.incubator.info=The Incubator combines liquids and items and allows them to sit at an ideal temperature to encourage bacterial growth.
 genetics.errors.incubator.insufficient.liquid.desc=Not enough incubation liquid
 
@@ -208,6 +220,7 @@ genetics.item.gene.more.genes=more genes. Hold shift to display.
 
 genetics.item.database.name=Gene Database
 genetics.item.database.master.name=Master Gene Database
+genetics.item.database.jeiTitle=Genetic Database
 
 genetics.item.misc.casing_iron=Reinforced Casing
 genetics.item.misc.dna_dye=DNA Dye
@@ -356,6 +369,14 @@ genetics.gui.database.control.extrabees.time.min=Every %s min.
 genetics.gui.database.control.extrabees.time.sec=Every %s sec.
 genetics.gui.database.products.extrabees.products=Products
 genetics.gui.database.products.extrabees.specialties=Specialties
+
+genetics.gui.database.genebank.title=Gene Bank
+genetics.gui.database.genebank.tab.info=Info
+genetics.gui.database.genebank.tab.stats=Stats
+genetics.gui.database.genebank.tab.ranking=Ranking
+genetics.gui.database.genebank.fullgenome=§nFull Genome Project
+genetics.gui.database.genebank.sequenced=§oSequenced §r%1$s/%2$s §oGenes
+genetics.gui.database.genebank.gene.count=%1$s/%2$s Genes
 
 genetics.gui.database.tab.species.overview=Overview
 genetics.gui.database.tab.species.classification=Classification
