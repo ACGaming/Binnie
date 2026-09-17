@@ -9,6 +9,7 @@ import binnie.core.gui.minecraft.control.ControlItemDisplay;
 import binnie.core.gui.minecraft.control.ControlPlayerInventory;
 import binnie.core.gui.minecraft.control.ControlSlot;
 import binnie.core.machines.Machine;
+import binnie.core.util.I18N;
 import binnie.extrabees.utils.AlvearyMutationHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -39,7 +40,7 @@ public class WindowAlvearyMutator extends Window {
 		this.setTitle(Machine.getMachine(this.getInventory()).getPackage().getDisplayName());
 		new ControlPlayerInventory(this);
 		new ControlSlot.Builder(this, 79, 30).assign(0);
-		new ControlText(this, new Area(0, 52, getWidth(), 16), "Possible Mutagens:", TextJustification.MIDDLE_CENTER).setColor(5592405);
+		new ControlText(this, new Area(0, 52, getWidth(), 16), I18N.localise("binniecore.gui.possible.mutagens"), TextJustification.MIDDLE_CENTER).setColor(5592405);
 		final int size = AlvearyMutationHandler.getMutagens().size();
 		final int w = size * 18;
 		NumberFormat numberFormat = NumberFormat.getNumberInstance(MinecraftForgeClient.getLocale());
@@ -52,7 +53,7 @@ public class WindowAlvearyMutator extends Window {
 				Float multiplier = mutagen.getValue();
 
 				String format = numberFormat.format(multiplier);
-				display.addTooltip(TextFormatting.GRAY + "Multiplier: " + format + "x");
+				display.addTooltip(TextFormatting.GRAY + I18N.localise("binniecore.gui.multiplier", format + "x"));
 				x += 18;
 			}
 		}

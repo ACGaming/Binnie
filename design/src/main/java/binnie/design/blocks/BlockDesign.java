@@ -7,6 +7,7 @@ import binnie.core.models.DefaultStateMapper;
 import binnie.core.models.ModelManager;
 import binnie.core.models.ModelMutlipass;
 import binnie.core.util.TileUtil;
+import binnie.core.util.I18N;
 import binnie.design.Design;
 import binnie.design.DesignHelper;
 import binnie.design.api.IDesign;
@@ -147,7 +148,7 @@ public abstract class BlockDesign extends BlockMetadata implements IMultipassBlo
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
 		DesignBlock block = DesignHelper.getDesignBlock(this.getDesignSystem(), TileEntityMetadata.getItemDamage(stack));
 		if (block.getPrimaryMaterial() != block.getSecondaryMaterial()) {
-			tooltip.add(block.getPrimaryMaterial().getDesignMaterialName() + " and " + block.getSecondaryMaterial().getDesignMaterialName());
+			tooltip.add(I18N.localise("binniedesign.pattern.and", block.getPrimaryMaterial().getDesignMaterialName(), block.getSecondaryMaterial().getDesignMaterialName()));
 		} else {
 			tooltip.add(block.getPrimaryMaterial().getDesignMaterialName());
 		}

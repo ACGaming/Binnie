@@ -4,6 +4,7 @@ import binnie.core.api.gui.IWidget;
 import binnie.core.gui.controls.ControlTextCentered;
 import binnie.core.gui.database.DatabaseTab;
 import binnie.core.gui.database.PageSpecies;
+import binnie.core.util.I18N;
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.genetics.IAlleleSpecies;
 
@@ -14,11 +15,11 @@ public class PageSpeciesClimate extends PageSpecies {
 
 	public PageSpeciesClimate(IWidget parent, DatabaseTab tab) {
 		super(parent, tab);
-		new ControlTextCentered(this, 8, "Climate");
+		new ControlTextCentered(this, 8, I18N.localise("binniecore.gui.database.climate"));
 		tempBar = new ControlClimateBar(this, 8, 24, 128, 12);
 		humidBar = new ControlClimateBar(this, 8, 42, 128, 12, true);
-		new ControlTextCentered(this, 70, "Biomes");
-		biomes = new ControlBiomes(this, 8, 90, 8, 4);
+		new ControlTextCentered(this, 70, I18N.localise("binniecore.gui.database.biomes"));
+		biomes = new ControlBiomes(this, 8, 90, 128, 64);
 	}
 
 	@Override

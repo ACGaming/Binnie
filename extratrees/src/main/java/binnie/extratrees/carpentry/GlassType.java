@@ -3,6 +3,7 @@ package binnie.extratrees.carpentry;
 import binnie.botany.api.genetics.EnumFlowerColor;
 import binnie.core.Constants;
 import binnie.core.block.TileEntityMetadata;
+import binnie.core.util.I18N;
 import binnie.design.api.IDesignMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -85,7 +86,7 @@ public class GlassType implements IDesignMaterial {
 
 	@Override
 	public String getDesignMaterialName() {
-		return this.name;
+		return I18N.localise("extratrees.glassType.color." + name.toLowerCase().replace(" ", "_"));
 	}
 
 	@Override

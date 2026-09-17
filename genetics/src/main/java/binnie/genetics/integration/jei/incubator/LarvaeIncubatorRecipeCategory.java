@@ -1,6 +1,7 @@
 package binnie.genetics.integration.jei.incubator;
 
 import binnie.genetics.integration.jei.RecipeUids;
+import binnie.core.util.I18N;
 
 public class LarvaeIncubatorRecipeCategory extends IncubatorRecipeCategory {
 	@Override
@@ -10,6 +11,6 @@ public class LarvaeIncubatorRecipeCategory extends IncubatorRecipeCategory {
 
 	@Override
 	public String getTitle() {
-		return "Larvae Incubation";
+		return I18N.localise("genetics.machine.lab_machine.incubator.larvae.jeiTitle");
 	}
 }

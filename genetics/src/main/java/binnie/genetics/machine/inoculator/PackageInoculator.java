@@ -12,6 +12,7 @@ import binnie.core.machines.inventory.InventorySlot;
 import binnie.core.machines.inventory.SlotValidator;
 import binnie.core.machines.inventory.TankValidator;
 import binnie.core.machines.power.ComponentPowerReceptor;
+import binnie.core.util.I18N;
 import binnie.genetics.api.IItemSerum;
 import binnie.genetics.core.GeneticsGUI;
 import binnie.genetics.genetics.Engineering;
@@ -93,7 +94,7 @@ public class PackageInoculator extends GeneticMachine.PackageGeneticBase impleme
 
 		@Override
 		public String getTooltip() {
-			return "Serum Vials & Arrays";
+			return I18N.localise("genetics.machine.adv_machine.splicer.tooltips.slots.serum");
 		}
 	}
 
@@ -105,7 +106,7 @@ public class PackageInoculator extends GeneticMachine.PackageGeneticBase impleme
 
 		@Override
 		public String getTooltip() {
-			return GeneticLiquid.BacteriaVector.toString();
+			return GeneticLiquid.BacteriaVector.get(1).getLocalizedName();
 		}
 	}
 }

@@ -66,7 +66,7 @@ public class WindowArboristDatabase extends WindowAbstractDatabase {
 		}));
 		this.createMode(TreeMode.PLANKS, new ModeWidgets(TreeMode.PLANKS, this, (area, modePage) -> {
 			ControlListBox<ItemStack> controlListBox = new ModeControlListBox(modePage, area);
-			List<ItemStack> planks = WoodManager.getAllPlankTypes().stream().map(IDesignMaterial::getStack).collect(Collectors.toList());
+			List<ItemStack> planks = WoodManager.getAllPlankTypes().stream().map(plank -> plank.getStack(false)).collect(Collectors.toList());
 			controlListBox.setOptions(planks);
 			return controlListBox;
 		}));

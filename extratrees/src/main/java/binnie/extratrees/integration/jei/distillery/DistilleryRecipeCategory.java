@@ -6,6 +6,7 @@ import binnie.core.gui.geometry.Area;
 import binnie.core.gui.geometry.Point;
 import binnie.core.gui.resource.textures.StandardTexture;
 import binnie.core.gui.resource.textures.Texture;
+import binnie.core.util.I18N;
 import binnie.extratrees.ExtraTrees;
 import binnie.extratrees.core.ExtraTreeTexture;
 import binnie.extratrees.integration.jei.ExtraTreesJeiPlugin;
@@ -39,7 +40,7 @@ public class DistilleryRecipeCategory implements IRecipeCategory<DistilleryRecip
 
 	@Override
 	public String getTitle() {
-		return "Distilling";
+		return I18N.localise("extratrees.machine.distillery.jeiTitle");
 	}
 
 	@Override

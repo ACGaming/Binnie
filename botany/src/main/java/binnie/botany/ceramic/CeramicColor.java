@@ -40,7 +40,7 @@ public class CeramicColor implements IDesignMaterial {
 
 	@Override
 	public String getDesignMaterialName() {
-		return color.getName();
+		return color.getFlowerColorAllele().getColorName();
 	}
 
 	@Override

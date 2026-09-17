@@ -28,7 +28,7 @@ public class GenepoolRecipeCategory implements IRecipeCategory<GenepoolRecipeWra
 
 	@Override
 	public String getTitle() {
-		return I18N.localise("genetics.machine.lab_machine.genepool");
+		return I18N.localise("genetics.machine.lab_machine.genepool.jeiTitle");
 	}
 
 	@Override

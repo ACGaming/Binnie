@@ -19,6 +19,7 @@ import binnie.core.gui.minecraft.control.ControlPlayerInventory;
 import binnie.core.gui.minecraft.control.ControlTabIcon;
 import binnie.core.gui.window.Panel;
 import binnie.core.gui.window.WindowMachine;
+import binnie.core.util.I18N;
 import binnie.genetics.Genetics;
 import binnie.genetics.genetics.Engineering;
 import binnie.genetics.genetics.GeneTracker;
@@ -106,7 +107,7 @@ public class WindowGeneBank extends WindowMachine {
 		final ControlTabBar<IBreedingSystem> tabBar = new GeneBankTabBar(this, boxX);
 		tabBar.setValue(Binnie.GENETICS.getFirstActiveSystem());
 		boxX -= 8;
-		final ControlTabBar<String> infoTabs = new ControlTabBar<>(this, boxX + 8, 160, 16, 50, Alignment.LEFT, Arrays.asList("Info", "Stats", "Ranking"));
+		final ControlTabBar<String> infoTabs = new ControlTabBar<>(this, boxX + 8, 160, 16, 50, Alignment.LEFT, Arrays.asList(I18N.localise("genetics.gui.database.genebank.tab.info"), I18N.localise("genetics.gui.database.genebank.tab.stats"), I18N.localise("genetics.gui.database.genebank.tab.ranking")));
 		final Panel panelProject = new Panel(this, boxX + 24, 160, geneBoxWidth + 20, 50, MinecraftGUI.PanelType.BLACK);
 		int totalGenes = 0;
 		int seqGenes = 0;
@@ -123,13 +124,13 @@ public class WindowGeneBank extends WindowMachine {
 				}
 			}
 		}
-		new ControlText(panelProject, new Point(4, 4), "§nFull Genome Project");
-		new ControlText(panelProject, new Point(4, 18), "§oSequenced §r" + seqGenes + "/" + totalGenes + " §oGenes");
+		new ControlText(panelProject, new Point(4, 4), I18N.localise("genetics.gui.database.genebank.fullgenome"));
+		new ControlText(panelProject, new Point(4, 18), I18N.localise("genetics.gui.database.genebank.sequenced", seqGenes, totalGenes));
 	}
 
 	@Override
 	public String getTitle() {
-		return "Gene Bank";
+		return I18N.localise("genetics.gui.database.genebank.title");
 	}
 
 	@Override
@@ -192,7 +193,7 @@ public class WindowGeneBank extends WindowMachine {
 						}
 					}
 				}
-				tooltip.add(seqGenes + "/" + totalGenes + " Genes");
+				tooltip.add(I18N.localise("genetics.gui.database.genebank.gene.count", seqGenes, totalGenes));
 			}
 		}
 	}

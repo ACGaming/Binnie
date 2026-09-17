@@ -2,6 +2,7 @@ package binnie.extrabees.machines.frame.window;
 
 import binnie.core.machines.ManagerMachine;
 import binnie.core.machines.inventory.SlotValidator;
+import binnie.core.util.I18N;
 import forestry.api.apiculture.IHiveFrame;
 import net.minecraft.item.ItemStack;
 
@@ -17,6 +18,6 @@ public class SlotValidatorFrame extends SlotValidator {
 
 	@Override
 	public String getTooltip() {
-		return "Hive Frames";
+		return I18N.localise("binniecore.gui.slot.hive.frame");
 	}
 }

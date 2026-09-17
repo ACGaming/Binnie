@@ -7,6 +7,7 @@ import binnie.core.gui.ITooltip;
 import binnie.core.gui.Tooltip;
 import binnie.core.gui.controls.core.Control;
 import binnie.core.gui.resource.textures.CraftGUITexture;
+import binnie.core.util.I18N;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -31,7 +32,7 @@ public class ControlUser extends Control implements ITooltip {
 	@Override
 	public void getTooltip(final Tooltip tooltip, ITooltipFlag tooltipFlag) {
 		tooltip.setType(Tooltip.Type.USER);
-		tooltip.add("Owner");
+		tooltip.add(I18N.localise("binniecore.gui.user.title"));
 		if (!Objects.equals(this.username, "")) {
 			tooltip.add(this.username);
 		}

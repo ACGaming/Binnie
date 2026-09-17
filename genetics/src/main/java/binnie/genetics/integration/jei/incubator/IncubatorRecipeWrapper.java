@@ -1,6 +1,7 @@
 package binnie.genetics.integration.jei.incubator;
 
 import binnie.genetics.machine.incubator.IIncubatorRecipe;
+import binnie.core.util.I18N;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
@@ -38,8 +39,8 @@ public class IncubatorRecipeWrapper implements IRecipeWrapper {
 	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
 		float loss = recipe.getLossChance();
 		if (loss > 0) {
-			minecraft.fontRenderer.drawString("Item", 24, 0, Color.gray.getRGB());
-			String lossString = String.format("Loss: %.0f%%", loss * 100);
+			minecraft.fontRenderer.drawString(I18N.localise("genetics.machine.lab_machine.incubator.jeiText1"), 24, 0, Color.gray.getRGB());
+			String lossString = String.format(I18N.localise("genetics.machine.lab_machine.incubator.jeiText2") + ": %.0f%%", loss * 100);
 			minecraft.fontRenderer.drawString(lossString, 24, 10, Color.gray.getRGB());
 		}
 	}

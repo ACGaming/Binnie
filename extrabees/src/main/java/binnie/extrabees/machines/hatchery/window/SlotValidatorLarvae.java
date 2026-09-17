@@ -2,6 +2,7 @@ package binnie.extrabees.machines.hatchery.window;
 
 import binnie.core.machines.ManagerMachine;
 import binnie.core.machines.inventory.SlotValidator;
+import binnie.core.util.I18N;
 import binnie.extrabees.utils.Utils;
 import forestry.api.apiculture.EnumBeeType;
 import net.minecraft.item.ItemStack;
@@ -18,6 +19,6 @@ public class SlotValidatorLarvae extends SlotValidator {
 
 	@Override
 	public String getTooltip() {
-		return "Larvae";
+		return I18N.localise("binniecore.gui.slot.larvae");
 	}
 }

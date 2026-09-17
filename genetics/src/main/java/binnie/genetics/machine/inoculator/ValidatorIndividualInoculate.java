@@ -2,6 +2,7 @@ package binnie.genetics.machine.inoculator;
 
 import binnie.core.Binnie;
 import binnie.core.machines.inventory.SlotValidator;
+import binnie.core.util.I18N;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.ISpeciesRoot;
 import net.minecraft.item.ItemStack;
@@ -19,6 +20,6 @@ public class ValidatorIndividualInoculate extends SlotValidator {
 
 	@Override
 	public String getTooltip() {
-		return "Inoculable Individual";
+		return I18N.localise("binniecore.gui.slot.inoculable.individual");
 	}
 }
